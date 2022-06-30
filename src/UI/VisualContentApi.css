@@ -1,0 +1,31 @@
+.container-visual-content {
+    border: 3px solid black;
+    width: 75%;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: baseline;
+    max-width: 900px;
+    margin: 50px auto 76px auto;
+    padding: 11px;
+    border-radius: 10px;
+    background-color: rgb(37, 37, 37);
+    -webkit-box-shadow: 10px 9px 16px -5px rgba(0,0,0,0.54); 
+    box-shadow: 10px 9px 16px -5px rgba(0,0,0,0.54);
+}
+
+.sinopse-and-form {
+    margin-right: 10px;
+}
+
+@media screen and (max-width:830px) {
+    .container-visual-content {
+        flex-wrap: wrap;
+        width: min-content;
+        justify-content: center;
+    }
+
+    .sinopse-and-form {
+        margin-right: 0;
+        margin: 0 12px;
+    }
+}
