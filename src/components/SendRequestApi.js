@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 import Api from '../services/Api';
 import './SendRequestApi.css'
 
@@ -54,6 +54,7 @@ const SendRequestApi = (props) => {
                 getContentApi(ramdomNumberOfPageApiTvShows, pathApi.TvShows[1], ramdomChoiceForResultsApi);
             }
         }
+        props.onActiveScroll(0, 130, 900);
     }
 
     async function getContentApi(ramdomNumOfPage, pathApi, ramdomNumOfResultsReturnedApi) {
@@ -69,7 +70,9 @@ const SendRequestApi = (props) => {
             setErrorSelect('fetch-failed');
         })
         
-    }
+    } 
+
+
 
     return(
         <div>
