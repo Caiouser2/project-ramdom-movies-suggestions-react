@@ -4,6 +4,9 @@ import LoadingImage from '../components/LoadingImage';
 const ImageAndInformation = props => {
     const mainUrlImage = "https://image.tmdb.org/t/p/original/";
 
+    function returnImage() {
+        return <img src={mainUrlImage + props.image} alt="Não temos imagens ainda." border="0"/>
+    }
 
     return(
         <div className="image-and-informations">
@@ -16,7 +19,13 @@ const ImageAndInformation = props => {
             </h2>
 
             <div className="container-image" tabIndex="0">
-                <img src={mainUrlImage + props.image} alt="Capa do Filme. Leia a sinospe para compreender o contexto da capa"/>
+                {
+                    props.image === undefined
+                    ? null
+                    : props.image === ''
+                    ? 'Ainda não temos a capa do contéudo sugerido'
+                    : returnImage()
+                }
                 <LoadingImage activated={props.reciveActivation}/>
             </div>
 
