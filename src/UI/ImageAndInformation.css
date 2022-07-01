@@ -8,7 +8,7 @@
     overflow-y: hidden;
     overflow-x: auto;
     white-space: pre;
-    font-size: 30px;
+    font-size: 34px;
     text-align: center;
 }
 
@@ -37,6 +37,12 @@
     border-radius: 10px;
 }
 
+.container-image {
+    color: white;
+    text-align: center;
+    font-size:22px;
+}
+
 .release-date-and-adult-content > h3 {
     color: rgb(221 220 220); 
     margin-bottom: 5px;
@@ -58,24 +64,35 @@
     }
 }
 
-@media screen and (max-width:400px) {
+@media screen and (max-width:750px) {
     .image-and-informations {
-        width: 270px;
+        width: 370px;
     }
 
     .container-image {
-        width: 270px;
-        height: 420px;
+        width: 370px;
+        height: 520px;
     }
 }
 
-@media screen and (max-width:400px) {
+@media screen and (max-width:450px) {
     .image-and-informations {
-        width: 215px;
+        width: 282px;
     }
 
     .container-image {
-        width: 215px;
-        height: 365px;
+        width: 282px;
+        height: 432px;
+    }
+}
+
+@media screen and (max-width:380px) {
+    .image-and-informations {
+        width: 230px;
+    }
+
+    .container-image {
+        width: 230px;
+        height: 380px;
     }
 }
