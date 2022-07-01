@@ -54,7 +54,7 @@ const SendRequestApi = (props) => {
                 getContentApi(ramdomNumberOfPageApiTvShows, pathApi.TvShows[1], ramdomChoiceForResultsApi);
             }
         }
-        props.onActiveScroll(0, 130, 900);
+        props.onActiveScroll(0, 115, 900);
     }
 
     async function getContentApi(ramdomNumOfPage, pathApi, ramdomNumOfResultsReturnedApi) {
