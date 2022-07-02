@@ -75,7 +75,7 @@ const SendRequestApi = (props) => {
 
 
     return(
-        <div>
+        <div className="container-send-request">
             <select className={errorSelect} defaultValue={selectedValue} onChange={selectChoiceUser} title="Campo de seleção entre filme ou série">
                 <option value="" disabled title="Opção nula">Filme ou Série</option>
                 <option value="TvShows" title="Série">Séries</option>

@@ -20,6 +20,7 @@
 .image-and-informations > h2, .overview >h2 {
     margin-bottom: 5px;
     color: rgb(226, 149, 61) !important;
+    letter-spacing:1.2px;
 }
 
 .container-image {
@@ -62,9 +63,7 @@
     .image-and-informations {
         margin: 0 12px;
     }
-}
 
-@media screen and (max-width:750px) {
     .image-and-informations {
         width: 370px;
     }
@@ -75,7 +74,7 @@
     }
 }
 
-@media screen and (max-width:450px) {
+@media screen and (max-width:468px) {
     .image-and-informations {
         width: 282px;
     }
