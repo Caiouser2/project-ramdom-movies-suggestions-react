@@ -1,0 +1,23 @@
+.container-horizontal-ads {
+    position: absolute;
+    display: flex;
+    justify-content:space-between;
+    width: 100%;
+    top: 130px;
+    padding: 45px;
+}
+
+.container-horizontal-ads > ins {
+    height: 700px;
+    width: 120px;
+}
+
+@media screen and (max-width:1280) {
+    .container-horizontal-ads {
+        display: none !important; 
+    }
+
+    .container-horizontal-ads > ins {
+        display: none !important;
+    }
+}

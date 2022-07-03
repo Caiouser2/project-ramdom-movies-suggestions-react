@@ -1,0 +1,11 @@
+.container-vertical-ads > ins {
+    max-width: 800px;
+    height: 95px;
+    margin: 0 auto;
+    width: 80%;
+}
+
+.container-vertical-ads {
+    width: 100%;
+    margin-bottom: 40px;
+}
