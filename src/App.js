@@ -2,7 +2,7 @@ import { useState } from 'react';
 import VisualContentApi from './UI/VisualContentApi';
 import Footer from './UI/Footer';
 import ImportantsInformations from './components/ImportantsInformations';
-import WarningAdultContent from './components/WarningAdultContent'
+import WarningAdultContent from './components/WarningAdultContent';
 import './App.css';
 
 function App() {
