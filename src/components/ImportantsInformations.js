@@ -29,34 +29,39 @@ export default function ImportantsInformations(props) {
             <h3 title="Informações importantes acerca do contéudo do site">
             Nosso site nâo tem ligação direta com o
             THE MOVIE DATABASE, apenas utilizamos
-            as informações acerca dos filmes e Séries
-            quais são disponibilizados por eles.
-            Não gerenciamos totalmente os contéudos que são apresentados, 
-            apenas obtemos cada em deles de forma aleatória e apresentamos em nosso site.
+            as informações acerca dos filmes e séries
+            quais são disponibilizados pela base de dados quais eles são donos e detêm todos os direitos.
+            Não gerenciamos totalmente os contéudos que são apresentados, pois 
+            obtemos cada em deles de forma aleatória, sem termos a capacidade
+            de filtrar tudo que é sugerido, para que se mantenha a principal
+            funcionalidade do site, que é dar sugestões de filmes e séries de forma 
+            que não seja previsíveis os resultados sugeridos ao usuário. 
             <br></br>
             <br/>
             <p>
                 Não nos responsabilizamos por qualquer informação
-                incorreta, ou contéudo inapropido acerca dos
-                filmes ou séries, dado o motivo de apenas utilizarmos o serviço,
-                e não termos pleno controle sobre o contéudo.
+                incorreta, ou contéudo inapropiado acerca dos
+                filmes ou séries, dado o motivo de utilizarmos o serviço,
+                e não termos pleno controle sobre o que será sugerido.
             </p>
             <br></br>
             <p>
                 No ato da sugestão de filmes ou séries não temos controle
                 sobre a classificação indicativa que o contéudo faz parte, 
                 por isso salientamos que se a princípio for plenamente notável
-                que você não faz parte do grupo classificativo pedimos que faça 
+                que você não faz parte do grupo classificativo livre a assistir o que lhe foi sugerido, pedimos que faça 
                 o clique no botão e busque uma nova sugestão de contéudo para assistir, caso você decida 
-                assitir o filme ou série tendo em vista que você não se enquadra no perfil da classificação indicativa,
+                assitir o filme ou série tendo em vista que você não se enquadra no perfil da classificação indicativa recomendada,
                 assista ciente dos aviso que lhe foi dado, por sua própia conta e risco. Nós não nos reponsabilizamos por quaisquer danos causados a sua pessoa
-                ao infringir nosso solene pedido.     
+                ao infringir nosso pedido.     
               </p>
               <br></br>
               <p>
-                Caso seja encontrado algo que não condiz com
+                Caso seja encontrado no site algo que não condiz com
               filmes e séries, ou que fuja da propsta de pleno entretenimento,
-              pedimos que por favor entre em contato com nosso 
+              tais como: campanha política, contéudo de exploração infantil, contéudo de exploração animal,
+              discurso de ódio, intolerância religiosa, etc.
+              Pedimos que por favor entre em contato com nosso 
               canal de atendimeto, para que nossa equipe busque entender o problema 
               e entre com as cabíveis medidas para soluciná-lo.
               </p>
