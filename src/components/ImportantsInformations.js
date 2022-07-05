@@ -11,18 +11,13 @@ export default function ImportantsInformations(props) {
     } 
 
     function sendValue() {
-        props.unActiveImportantsInformations(false);
+        
     }
 
-    // function showWarnig() {
-    //     props.activeWarning(false);
-    //     console.log(props.activeWarning);
-    // }
-
     return(
-        <div className={visibleImportantsInformations}>
+        <div className={visibleImportantsInformations} onClick={() => {props.unActiveImportantsInformations(false)}} title="Clique em qualquer lugar fora do pop up para fechar">
             <div className="align-button" title="Botão para fechar poup-up de informações importantes">
-                <div className="button-cancel" onClick={sendValue}>
+                <div className="button-cancel" onClick={() => {props.unActiveImportantsInformations(false)}}>
                     <h1>X</h1>
                 </div>
             </div>

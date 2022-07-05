@@ -19,17 +19,29 @@ footer > h3 {
     padding: 10px 0;
 }
 
-li, a, h5 {
+li {
     list-style: none;
+}
+
+.side-one > li > a, 
+.side-one > a, 
+.side-one > li > h5,
+.side-two > li > a,
+.side-two > li {
     color: rgb(218, 74, 74);
     text-decoration: none;
     font-size: 16px;
     font-weight: 300;
     letter-spacing: 0.5px;
+    cursor: pointer;
+
 }
 
-li:hover, a:hover, h5:hover {
-    cursor: pointer;
+.side-one > li > a:hover, 
+.side-one > a:hover, 
+.side-one > li > h5:hover,
+.side-two > li > a:hover,
+.side-two > li:hover {
     color: rgb(50, 110, 212);
     text-decoration: underline;
 }
