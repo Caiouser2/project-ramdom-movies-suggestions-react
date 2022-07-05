@@ -10,10 +10,6 @@ export default function ImportantsInformations(props) {
         visibleImportantsInformations += 'show';
     } 
 
-    function sendValue() {
-        
-    }
-
     return(
         <div className={visibleImportantsInformations} onClick={() => {props.unActiveImportantsInformations(false)}} title="Clique em qualquer lugar fora do pop up para fechar">
             <div className="align-button" title="Botão para fechar poup-up de informações importantes">
