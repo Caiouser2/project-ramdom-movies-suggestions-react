@@ -1,7 +1,6 @@
 import './LoadingImage.css'
 
 export default function LoadingImage(props) {
-
     let loading = '';
 
     if (props.activated === 'active') {

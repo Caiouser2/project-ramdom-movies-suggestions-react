@@ -6,10 +6,20 @@ footer {
     width: 100%;
 }
 
+footer > h3 > span {
+    font-size: 25px;    
+}
+
 footer > h3 {
     color: rgb(221 220 220);
     border-bottom: 3px solid white;
-    padding: 12px;
+    padding: 8px 13.5px 13.5px 13.5px;
+    font-weight: 500;
+    font-size: 26px;
+}
+
+footer > h3 > p {
+    font-size: 20px;
 }
 
 .align-informations {
@@ -46,13 +56,38 @@ li {
     text-decoration: underline;
 }
 
-@media screen and (max-width:400px) {
+@media screen and (max-width:580px) {
     footer > h3 {
-        font-size: 14px;
+        font-size: 22px;
     }
 
-    li, a, h5 {
-        font-weight: 600;
+    footer > h3 > p {
+        font-size: 18px;
+    }
+
+    .side-one > li > a, 
+    .side-one > a, 
+    .side-one > li > h5,
+    .side-two > li > a,
+    .side-two > li {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width:400px) {
+    footer > h3 {
+        font-size: 18px;
+    }
+
+    footer > h3 > p {
+        font-size: 16px;
+    }
+
+    .side-one > li > a, 
+    .side-one > a, 
+    .side-one > li > h5,
+    .side-two > li > a,
+    .side-two > li {
         font-size: 12px;
     }
 }
