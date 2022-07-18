@@ -3,10 +3,10 @@ import Api from '../services/Api';
 import './SendRequestApi.css'
 
 const SendRequestApi = (props) => {
-    const pathApi = {
+    const pathApiContentMoviesAndTvShows = {
         Movies: {
-            0:"/movie/top_rated?api_key=cc95f3c6dd41a11be17d581b9ec3f1f9&language=pt-BR&page=",
-            1:"/movie/popular?api_key=cc95f3c6dd41a11be17d581b9ec3f1f9&language=pt-BR&page="
+            0:"/movie/top_rated?api_key=cc95f3c6dd41a11be17d581b9ec3f1f9&language=pt-br&page=",
+            1:"/movie/popular?api_key=cc95f3c6dd41a11be17d581b9ec3f1f9&language=pt-br&page="
         },
         TvShows: {
             0:"/tv/popular?api_key=cc95f3c6dd41a11be17d581b9ec3f1f9&language=pt-BR&page=",
@@ -24,7 +24,6 @@ const SendRequestApi = (props) => {
     const [errorSelect, setErrorSelect] = useState(null);
 
     function ramdomNumberToComplementApi() {
-
         const numberVariableRequstOfMovieAndTvShow = Math.floor(Math.random() * 2); //variable number for random choice of request of movie
         const ramdomNumberOfPageApiMovies = Math.floor(Math.random() * 135 + 1);
         const ramdomNumberOfPageApiTvShows = Math.floor(Math.random() * 90 + 1);
@@ -38,38 +37,41 @@ const SendRequestApi = (props) => {
             props.optionSelected(true);
             props.onActiveLoading();
 
-
             if (numberVariableRequstOfMovieAndTvShow === 0) {
-                getContentApi(ramdomNumberOfPageApiMovies, pathApi.Movies[0], ramdomChoiceForResultsApi);
+                getContentApi(ramdomNumberOfPageApiMovies, pathApiContentMoviesAndTvShows.Movies[0], ramdomChoiceForResultsApi);
             } else {
-                getContentApi(ramdomNumberOfPageApiMovies, pathApi.Movies[1], ramdomChoiceForResultsApi);
+                getContentApi(ramdomNumberOfPageApiMovies, pathApiContentMoviesAndTvShows.Movies[1], ramdomChoiceForResultsApi);
             }
         } else {
             props.optionSelected(false);
             props.onActiveLoading();
 
             if (numberVariableRequstOfMovieAndTvShow === 0) {
-                getContentApi(ramdomNumberOfPageApiTvShows, pathApi.TvShows[0], ramdomChoiceForResultsApi);
+                getContentApi(ramdomNumberOfPageApiTvShows, pathApiContentMoviesAndTvShows.TvShows[0], ramdomChoiceForResultsApi);
             } else {
-                getContentApi(ramdomNumberOfPageApiTvShows, pathApi.TvShows[1], ramdomChoiceForResultsApi);
+                getContentApi(ramdomNumberOfPageApiTvShows, pathApiContentMoviesAndTvShows.TvShows[1], ramdomChoiceForResultsApi);
             }
         }
-        props.onActiveScroll(0, 115, 900);
     }
 
     async function getContentApi(ramdomNumOfPage, pathApi, ramdomNumOfResultsReturnedApi) {
         await Api
         .get(`${pathApi}${ramdomNumOfPage}`)
         .then ((response) => {
-            props.reciveContentApi(response.data.results[ramdomNumOfResultsReturnedApi])
+            if (response.data.results[ramdomNumOfResultsReturnedApi].adult === true || response.data.results[ramdomNumOfResultsReturnedApi].overview === '') {
+                return ramdomNumberToComplementApi()
+            } else {
+                props.reciveContentApi(response.data.results[ramdomNumOfResultsReturnedApi]);
+                setTimeout(() => {props.onActiveScroll(0, 144, 1900)}, 300);
+                props.emptySelect(null);
+                setErrorSelect(null);
+            }
         })
         .catch((err) => {
-            // mensagem de: ops parece que nao conseguimos um filme para recomendar... Espere alguns segundos e tente novamente 
-            console.error("ops! ocorreu um erro" + err);
+            props.reciveContentApi({title: 'Ocorreu um erro', name:'Ocorreu um erro'});
             props.emptySelect('fetch-failed');
             setErrorSelect('fetch-failed');
         })
-        
     } 
 
 
@@ -78,8 +80,8 @@ const SendRequestApi = (props) => {
         <div className="container-send-request">
             <select className={errorSelect} defaultValue={selectedValue} onChange={selectChoiceUser} title="Campo de seleção entre filme ou série">
                 <option value="" disabled title="Opção nula">Filme ou Série</option>
-                <option value="TvShows" title="Série">Séries</option>
                 <option value="Movies" title="Filme">Filmes</option>
+                <option value="TvShows" title="Série">Séries</option>
             </select>
             <button type="button" onClick={ramdomNumberToComplementApi} title="Clique para receber sugestão aleatória">Obter Sugestão</button>
         </div>

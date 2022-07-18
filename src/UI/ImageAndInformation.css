@@ -25,17 +25,18 @@
 
 .container-image {
     background-color: rgb(33, 33, 32);
-    border-radius: 10px;
+    border-radius: 10px 10px 0 0;
     width: 300px;
     height: 450px;
     position: relative;
     border: 3px solid black;
+    border-bottom: 0;
 }
 
 .container-image > img {
     width: 100%;
     height: 100%;
-    border-radius: 10px;
+    border-radius: 10px 10px 0 0;
 }
 
 .container-image {
@@ -46,23 +47,22 @@
 
 .release-date-and-adult-content > h3 {
     color: rgb(221 220 220); 
-    letter-spacing: 1px;
-    margin-bottom: 5px;
-}
-
-.release-date-and-adult-content {
-    padding: 5px;
-    border-radius: 10px;
-    margin: 10px 0;
-    font-size: 14.5px;
-    width: 100%;
+    margin-top: 7px;
+    font-weight: 500;
+    padding: 3px 7px;
+    font-size: 17.5px;
     border: 3px solid black;
     background-color: rgb(27, 27, 27);
+    border-radius: 10px;
 }
 
 @media screen and (max-width:830px) {
     .image-and-informations {
         margin: 0 12px;
+    }
+
+    .release-date-and-adult-content > h3 {
+        text-align: center;
     }
 
     .image-and-informations {

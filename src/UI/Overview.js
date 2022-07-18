@@ -19,7 +19,7 @@ const Overview = props => {
                     props.warningError === 'error'
                     ? 'Ops... você precisa escolher uma opção entre filme ou série.'
                     : props.warningError === 'fetch-failed'
-                    ? 'Ops... parece qeu nosso serviço está indisponível no momento, agurade alguns segundos e tente novamente.'
+                    ? 'Ops... parece que nosso serviço está indisponível no momento, agurade alguns segundos e tente novamente.'
                     :
                     props.overview === undefined
                     ? 'Ainda não temos a sinopse desse contéudo, Clique no botão (Obter sugestão) para receber uma sugestão aleatória.'
