@@ -77,7 +77,7 @@ export default function WatchSuggestedContent(props) {
 
     function renderArrowMoreInformationAboutJustWatch() {
         if (typeof linkWatchContent === "string") {
-            return <div className="container-icon-more-and-less" onClick={visibleMessage}> <div className={ arrowMoreInformations + " icon-more-and-less"}></div></div>;
+            return <div  className="container-icon-more-and-less" onClick={visibleMessage} title="Botão, clique para saber mais sobre o redirecinamento"> <button type="button" className={ arrowMoreInformations + " icon-more-and-less"}></button></div>;
         } else {
             return null; 
         }
@@ -85,7 +85,7 @@ export default function WatchSuggestedContent(props) {
 
     function renderInformationsAboutJustWatch() {
         if (typeof linkWatchContent === "string") {
-            return <div className={ messageAboutJustWatch + " warning-content-justwatch-text"}><h5>Ao clicar em assitir agora você será redircionado para o site do THE MOVIE DATABASE, onde atravéz das informações fornecidas pelo site JustWatch você pode escolher qual serviço usar para assistir a obra sugerida de forma legal. Para mais informações visitar <a href="https://www.justwatch.com/">JustWatch</a>.</h5></div>;
+            return <div className={ messageAboutJustWatch + " warning-content-justwatch-text"} title="Explicação sobre redirecionamento"><h5>Ao clicar em assitir agora você será redircionado para o site do THE MOVIE DATABASE, onde atravéz das informações fornecidas pelo site JustWatch você pode escolher qual serviço usar para assistir a obra sugerida de forma legal. Para mais informações visitar <a href="https://www.justwatch.com/">JustWatch</a>.</h5></div>;
         } else {
             return null; 
         }

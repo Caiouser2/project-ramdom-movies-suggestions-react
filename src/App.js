@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import VisualContentApi from './UI/VisualContentApi';
 import Footer from './UI/Footer';
 import ImportantsInformations from './components/ImportantsInformations';
@@ -9,7 +9,7 @@ import Trailer from './components/Trailer';
 import Api from './services/Api';
 import './App.css';
 
-function App(props) {
+function App() {
   //section pop up inportants informations
   const [showAndHideImportantsInformations, setShowAndHideImportantsInformations] = useState(false); 
   
@@ -89,6 +89,10 @@ function App(props) {
       <ImportantsInformations importantsInformations={showAndHideImportantsInformations} unActiveImportantsInformations={hideImportantsInformations}/>
       <PrivacyPolicy openCardPrivacyPolicy={showPrivacyPlicy} closeCardPrivacyPolicy={hidePrivacyPlicy} activeCard={visibilityPrivacyPolicy}/>
       <PopUpAceptPrivacyPolicy openPrivacyPlicy={showPrivacyPlicy}/>
+      <div className="container-arrow-trailer">
+        <div className="arrow-trailer"></div>
+        <div className="arrow-trailer"></div>
+      </div>
       <Trailer titles={titleContent} videos={contentReturnedApiVideo}/>
       <Footer visiblePrivacyPolicy={showPrivacyPlicy} activeImportantsInformations={showImportantsInformations}/>
     </div>
