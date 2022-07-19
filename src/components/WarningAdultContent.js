@@ -12,8 +12,6 @@ export default function WarningAdultContent() {
         setActiveWarning(warning);
     }
 
-
-
     return(
         <div className={'warning-adult-content ' + activeWarning}>
             <h4>
