@@ -29,7 +29,8 @@ footer > h3 > p {
     padding: 10px 0;
 }
 
-li {
+.align-informations > .side-one,
+.align-informations > .side-two {
     list-style: none;
 }
 

@@ -1,7 +1,6 @@
 import './WatchSuggestedContent.css';
 import Api from '../services/Api';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function WatchSuggestedContent(props) {
     const [linkWatchContent, setLinkWatchContent] = useState({});
@@ -38,7 +37,7 @@ export default function WatchSuggestedContent(props) {
                 .then ((response) => {
                     setLinkWatchContent(response.data.results.BR.link);
                 })
-                .catch((err) => {
+                .catch(() => {
                     if (props.id === null || props.activeRequestProvidersList === null) {
                         setLinkWatchContent(false);
                     } else {
@@ -61,7 +60,7 @@ export default function WatchSuggestedContent(props) {
 
     function renderLogo() {
         if (typeof linkWatchContent === "string") {
-            return <div className="align-logo-tmdb" onClick={redirectWatchContent}> <img  src={'https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg'} alt="sem imagens no momento"/> </div>
+            return <div className="align-logo-tmdb" onClick={redirectWatchContent}> <img src={'https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg'} alt="sem imagens no momento"/> </div>
         } else {
             return null
         }
@@ -71,13 +70,13 @@ export default function WatchSuggestedContent(props) {
         if (typeof linkWatchContent === "string") {
             return <a href={linkWatchContent} rel="noreferrer" target="_blank">Assitir agora</a>; 
         } else {
-            return <h3>Não disponível no Brasil</h3>;
+            return <h3 className="content-unavailable">Não disponível no Brasil</h3>;
         }
     }
 
     function renderArrowMoreInformationAboutJustWatch() {
         if (typeof linkWatchContent === "string") {
-            return <div  className="container-icon-more-and-less" onClick={visibleMessage} title="Botão, clique para saber mais sobre o redirecinamento"> <button type="button" className={ arrowMoreInformations + " icon-more-and-less"}></button></div>;
+            return <div  className="container-icon-more-and-less" onClick={visibleMessage} title="Clique para saber mais sobre o redirecinamento"> <button type="button" className={ arrowMoreInformations + " icon-more-and-less"}></button></div>;
         } else {
             return null; 
         }
@@ -85,7 +84,7 @@ export default function WatchSuggestedContent(props) {
 
     function renderInformationsAboutJustWatch() {
         if (typeof linkWatchContent === "string") {
-            return <div className={ messageAboutJustWatch + " warning-content-justwatch-text"} title="Explicação sobre redirecionamento"><h5>Ao clicar em assitir agora você será redircionado para o site do THE MOVIE DATABASE, onde atravéz das informações fornecidas pelo site JustWatch você pode escolher qual serviço usar para assistir o filme ou série que foi sugerida de maneira legal. Para mais informações visitar <a href="https://www.justwatch.com/">JustWatch</a>.</h5></div>;
+            return <div className={ messageAboutJustWatch + " warning-content-justwatch-text"} title="Explicação sobre redirecionamento"><h5>Ao clicar em assitir agora você será redircionado para o site do THE MOVIE DATABASE, onde atravéz das informações fornecidas pelo site JustWatch você pode escolher qual serviço usar para assistir de forma legal o filme ou série que lhe foi sugerido. Para mais informações visitar <a href="https://www.justwatch.com/" rel="noreferrer" target="_blank">JustWatch</a>.</h5></div>;
         } else {
             return null; 
         }

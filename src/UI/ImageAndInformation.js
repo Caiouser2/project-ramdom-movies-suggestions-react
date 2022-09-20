@@ -99,6 +99,12 @@ const ImageAndInformation = props => {
                 sendRequest={typeof props.activeRequestProvidersList !== "boolean" ? null : props.activeRequestProvidersList}
                 id={typeof props.idContentRequestProvidersList !== "number" ? null : props.idContentRequestProvidersList}/>
 
+                {
+                    props.activeRequestProvidersList === false
+                    ? <h3>{'Número de temporadas: ' + props.numberOfSeasons }<p>{ 'Número de episódios: ' + props.numberOfEpisodes }</p></h3> 
+                    : null
+                }
+
                 <h3 tabIndex="0" title={'Data de lançamento: ' + props.yearOfContent}>
                     Lançamento: { props.yearOfContent ? `${day}-${month}-${year}` : ''}
                 </h3>

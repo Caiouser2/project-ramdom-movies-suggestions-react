@@ -10,7 +10,7 @@
     position: sticky;
     bottom: 0;
     z-index: 10;
-    border: 3px solid black;
+    border: 2.7px solid black;
     border-top: 0;
 }
 
@@ -24,12 +24,16 @@
     height: 40px;
 }
 
+.content-unavailable {
+    margin: 0 !important;
+}
+
 .container-option-watch > h3, .container-option-watch > a {
     color: rgb(221 220 220); 
     display: flex;
     align-items: center; 
     font-weight: 500;
-    font-size: 16.5px;
+    font-size: 18px;
     margin-left: 10px;
     cursor: pointer;
     text-decoration: none;
@@ -107,11 +111,15 @@
 
 @media screen and (max-width:469px) {
     .container-icon-more-and-less {
-        transform: translateX(30px);
+        transform: translateX(19px);
     }
 }
 
 @media screen and (max-width:381px) {
+    .align-logo-tmdb {
+        margin-left: 0;
+    }
+
     .container-icon-more-and-less {
         transform: translateX(8px);
     }
