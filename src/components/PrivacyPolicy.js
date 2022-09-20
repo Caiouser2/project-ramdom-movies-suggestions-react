@@ -1,7 +1,6 @@
 import './PrivacyPolicy.css';
 
 export default function  PrivacyPolicy(props) {
-
     let classNamePrivacyPolicy = 'container-privacy-policy ';
 
     if (props.activeCard === 'hide') {

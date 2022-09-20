@@ -1,0 +1,49 @@
+.container-list > ul {
+    display: flex;
+    align-items: center;
+}
+
+.container-list > ul > li {
+    color: rgb(221 220 220);
+    list-style: none;
+    margin-left: 12px;
+    cursor: pointer;
+    padding: 7px;
+    border-radius: 10px;
+    white-space: pre;
+    box-shadow: 0 0 0 0;
+} 
+
+.container-list > ul > li:hover {
+    border: 3px solid black;
+    background-color: rgb(226, 149, 61);
+    color: black;
+}
+
+.container-list > ul > li:focus {
+    border: 3px solid black;
+    background-color: rgb(226, 149, 61);
+    color: black;
+}
+
+.container-list > ul > li:active {
+    border: 3px solid black;
+    background-color: rgb(226, 149, 61);
+    color: black;
+}
+
+@media screen and (max-width:890px) {
+    .container-list > ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .container-list > ul > li {
+        margin-left: 0;
+        margin-bottom: 15px;
+    }
+
+    .container-list > ul > li:nth-last-of-type(4) {
+        margin-top: 12px;
+    }
+}

@@ -12,6 +12,16 @@
     color:rgb(221 220 220);
     border-top: 3px solid rgb(226, 149, 61);
     justify-content: center;
+    animation: showPopUp 3s ease;
+    letter-spacing: 0.6px;
+}
+
+@keyframes showPopUp {
+    from {
+        bottom: -120px;
+    } to {
+        bottom: 0;
+    }
 }
 
 .button-acept-and-policy {
@@ -42,9 +52,14 @@
     .container-pop-up-policy {
         flex-direction: column;
     } 
+
+    .text-warning > h4 {
+        font-size: 14px;
+    }
     
     .button-acept-and-policy > button {
         margin-top: 15px;
+        font-size: 12px;
         margin-left: 0;
     }
 }

@@ -1,34 +1,13 @@
-import React, { useState } from 'react';
-import { useEffect } from 'react';
+import React, { useState, useEffect, forwardRef } from 'react';
 import SendRequestApi from '../components/SendRequestApi';
 import ImageAndInformation from './ImageAndInformation';
 import Overview from './Overview';
+import Api from '../services/Api';
 import './VisualContentApi.css';
 
-const VisualContentApi = (props) => {
-    //scrollY when click button
-    function smoothScrollTo(endX, endY, duration) {
-        const startX = window.scrollX || window.pageXOffset;
-        const startY = window.scrollY || window.pageYOffset;
-        const distanceX = endX - startX;
-        const distanceY = endY - startY;
-        const startTime = new Date().getTime();
-      
-        const easeInOutQuart = (time, from, distance, duration) => {
-            if ((time /= duration / 2) < 1) return distance / 2 * time * time * time * time + from;
-            return -distance / 2 * ((time -= 2) * time * time * time - 2) + from;
-        };
-      
-        const timer = setInterval(() => {
-
-            const time = new Date().getTime() - startTime;
-            const newX = easeInOutQuart(time, startX, distanceX, duration);
-            const newY = easeInOutQuart(time, startY, distanceY, duration);
-            if (time >= duration) {
-                clearInterval(timer);
-            }
-            window.scroll(newX, newY);
-        }, 1000 / 60); 
+const VisualContentApi = forwardRef((props, refVisualContent) => {
+    function onScrollListHeader() {
+        props.onActiveScroll(0, 35, 1900); //send to function in App.js
     }
 
     //section show dynamic content API on screen 
@@ -36,21 +15,48 @@ const VisualContentApi = (props) => {
 
     const [selectedOptionOfUserMovieOrTvShow, setSelectedOptionOfUserMovieOrTvShow] = useState(''); 
 
-    function selectedOption(option) {
+    async function selectedOption(option) {
         setSelectedOptionOfUserMovieOrTvShow(option); //option return true or false, option === true > movie; option !== true > TvShows
-        props.selectedMovieorTvShow(option);
+        await props.selectedMovieorTvShow(option);
     }
  
     async function content(actualContent) {
         setContentApi(actualContent);
         await props.returnedId(actualContent.id);
     }
-
+    //section get episode number
+    const [seasonAndEpisodeTvShows, setSeasonAndEpisodeTvShows] = useState({number_of_episodes:'Não informado', number_of_seasons:'Não informado',});
 
     useEffect(() => {
-        props.titlesSentToReciveTitle(contentApi.title || contentApi.name);
-        //send title app for use in trailer 
-    },[contentApi.name, contentApi.title, props],1);
+        if (selectedOptionOfUserMovieOrTvShow === false && typeof contentApi.id === "number") {
+            async function requestIformationTvShows() {
+                await Api 
+                .get(`https://api.themoviedb.org/3/tv/${contentApi.id}?api_key=cc95f3c6dd41a11be17d581b9ec3f1f9&language=pt-BR`)
+                .then((response) => {
+                    setSeasonAndEpisodeTvShows(response.data)
+                })
+                .catch((err) => {
+                    console.error("ops! ocorreu um erro" + err);
+                })
+            }
+            requestIformationTvShows();
+        } 
+    },[contentApi.id, selectedOptionOfUserMovieOrTvShow]);
+
+    useEffect(() => {
+        if (typeof contentApi.title === "string" || typeof contentApi.name === "string") {
+            props.titlesSendToReciveTitle(contentApi.title || contentApi.name || undefined);
+        }
+        // send title to App
+    },[contentApi.name, contentApi.title, props]);
+
+    useEffect(() => {
+        if (contentApi.poster_path !== '') {
+            props.SendPathImageOfContent(contentApi.poster_path || undefined);
+        }
+
+        // send poster path to App
+    },[contentApi.poster_path, props]);
 
     //section active loanding and active errors  
     const [activeLoading, setActiveLoading] = useState('nonActive');
@@ -73,14 +79,13 @@ const VisualContentApi = (props) => {
     }
 
     return(
-        <div className="container-visual-content">
+        <div className="container-visual-content" ref={refVisualContent}>
             <ImageAndInformation reciveActivation={activeLoading}
             title={
                 selectedOptionOfUserMovieOrTvShow
                 ? contentApi.title
                 : contentApi.name
             }
-
             yearOfContent={
                 contentApi.length === 0
                 ? ''
@@ -88,35 +93,35 @@ const VisualContentApi = (props) => {
                 ? contentApi.release_date 
                 : contentApi.first_air_date
             }
-
             verifyObejectEmpty={
                 contentApi.length === 0
                 ? false
                 : true
             }
-
             adultContent={
                 selectedOptionOfUserMovieOrTvShow
                 ? true
                 : false
             }
             image={contentApi.poster_path}
-            
             idGenre={
                 contentApi.genre_ids === undefined
                 ? [] 
                 : contentApi.genre_ids 
             }
             activeRequestProvidersList={selectedOptionOfUserMovieOrTvShow}
-            idContentRequestProvidersList={contentApi.id}/>
+            idContentRequestProvidersList={contentApi.id}
+            numberOfEpisodes={seasonAndEpisodeTvShows.number_of_episodes}
+            numberOfSeasons={seasonAndEpisodeTvShows.number_of_seasons}
+            tvShowInProduction={seasonAndEpisodeTvShows.in_production}/>
 
             <div className="sinopse-and-form">
                 <Overview warningError={error} overview={contentApi.overview}/>
-                <SendRequestApi onActiveScroll={smoothScrollTo} onActiveLoading={chargeTime} emptySelect={activeError} optionSelected={selectedOption} reciveContentApi={content}/>
+                <SendRequestApi onActiveScroll={onScrollListHeader} onActiveLoading={chargeTime} emptySelect={activeError} optionSelected={selectedOption} reciveContentApi={content}/>
                 <h5><span>⚠️</span> ANTES DE ASSITIR QUALQUER OBRA SUGERIDA VERIFIQUE A CLASSIFICAÇÃO INDICATIVA</h5>
             </div>
         </div>
     );
-};
+});
 
 export default VisualContentApi;
