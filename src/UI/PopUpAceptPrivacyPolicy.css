@@ -39,12 +39,13 @@
     cursor: pointer;
 }
 
-.text-warning > h4 > strong {
+.text-warning > h4 > a > strong {
     text-decoration: underline;
     cursor: pointer;
+    color:rgb(221 220 220);
 }
 
-.text-warning > h4 > strong:hover {
+.text-warning > h4 > a > strong:hover {
     color: gray;
 }
 

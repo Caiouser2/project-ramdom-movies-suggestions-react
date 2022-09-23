@@ -1,0 +1,45 @@
+.top-logo > h1 {
+    font-size: 28px;
+    color: rgb(50, 110, 212);
+    padding: 10px;
+    background-color: rgb(33, 33, 32);
+    margin-bottom: 30px;
+}
+
+.text-informations {
+    color: rgb(212, 211, 211);
+    font-family: 'Poppins', sans-serif;
+    border: 3px solid black;
+    border-radius: 7px;
+    padding: 15px;
+    height: 100%;
+    width: 85%;
+    margin: 0 auto;
+    background-color: rgb(37, 37, 37);
+} 
+
+.text-informations > h2 {
+    text-align: center;
+    margin-bottom: 5px;
+    color: rgb(226, 149, 61) !important;
+}
+
+.link-inicial-page {
+    width: 84.5%;
+    margin: 7px auto;
+}
+
+Link {
+    color: white;
+}
+
+.link-inicial-page span {
+    color: rgb(50, 110, 212);
+    
+}
+
+.link-inicial-page span:hover {
+    color: rgb(47, 95, 177);
+
+}
+

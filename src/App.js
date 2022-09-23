@@ -1,9 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import VisualContentApi from "./UI/VisualContentApi";
 import Footer from "./UI/Footer";
-import ImportantsInformations from "./components/ImportantsInformations";
 import WarningAdultContent from "./components/WarningAdultContent";
-import PrivacyPolicy from "./components/PrivacyPolicy";
 import PopUpAceptPrivacyPolicy from "./UI/PopUpAceptPrivacyPolicy";
 import Trailer from "./components/Trailer";
 import Api from "./services/Api";
@@ -32,32 +30,6 @@ function App() {
       }
       window.scroll(endX, newY);
     }, 1000 / 60);
-  }
-
-  //section pop up inportants informations
-  const [
-    showAndHideImportantsInformations,
-    setShowAndHideImportantsInformations,
-  ] = useState(false);
-
-  function showImportantsInformations(show) {
-    setShowAndHideImportantsInformations(show); //send true or for component ImportantsInformations
-  }
-
-  function hideImportantsInformations(hide) {
-    setShowAndHideImportantsInformations(hide); //send false for component ImportantsInformations
-  }
-
-  //section pop up privacy policy
-  const [visibilityPrivacyPolicy, setVisibilityPrivacyPolicy] =
-    useState("hide");
-
-  function showPrivacyPlicy() {
-    setVisibilityPrivacyPolicy("show");
-  }
-
-  function hidePrivacyPlicy() {
-    setVisibilityPrivacyPolicy("hide");
   }
 
   //section get videos: trailers, behind the cenes etc... and send for Trailer
@@ -193,11 +165,7 @@ function App() {
             RAMDOM MOVIES SUGGESTIONS
           </h1>
           <div className="align-button-menu">
-            <button
-              type="button"
-              onClick={openMenu}
-              className="button-open-and-close-menu"
-            >
+            <button type="button" onClick={openMenu} className="button-open-and-close-menu">
               <div className="line-button"></div>
               <div className="line-button"></div>
               <div className="line-button"></div>
@@ -220,16 +188,7 @@ function App() {
         returnedId={reciveId}
         selectedMovieorTvShow={reciveSelectedOption}
       />
-      <ImportantsInformations
-        importantsInformations={showAndHideImportantsInformations}
-        unActiveImportantsInformations={hideImportantsInformations}
-      />
-      <PrivacyPolicy
-        openCardPrivacyPolicy={showPrivacyPlicy}
-        closeCardPrivacyPolicy={hidePrivacyPlicy}
-        activeCard={visibilityPrivacyPolicy}
-      />
-      <PopUpAceptPrivacyPolicy openPrivacyPlicy={showPrivacyPlicy} />
+      <PopUpAceptPrivacyPolicy/>
       <div className="container-arrow-trailer">
         <div className="arrow-trailer"></div>
         <div className="arrow-trailer"></div>
@@ -266,10 +225,7 @@ function App() {
           </li>
         </ol>
       </nav>
-      <Footer
-        visiblePrivacyPolicy={showPrivacyPlicy}
-        activeImportantsInformations={showImportantsInformations}
-      />
+      <Footer/>
     </div>
   );
 }
