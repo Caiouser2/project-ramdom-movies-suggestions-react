@@ -161,7 +161,7 @@ function App() {
     <div>
       <header>
         <div className="align-button-and-logo">
-          <h1 title="Nome do site: RAMDOM MOVIES SUGGESTION">
+          <h1 title="RAMDOM MOVIES SUGGESTION">
             RAMDOM MOVIES SUGGESTIONS
           </h1>
           <div className="align-button-menu">

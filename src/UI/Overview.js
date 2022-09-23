@@ -14,7 +14,7 @@ const Overview = props => {
     return(
         <div className="overview ">
             <h2 tabIndex="0" title="Sinopse">Sinopse</h2>
-            <h3 tabIndex="0" className={errorSelectEmpty} title={'Sinopse da obra:' + props.overview}>
+            <h3 tabIndex="0" className={ errorSelectEmpty }  title={ 'Sinopse da obra' }>
                 {
                     props.warningError === 'error'
                     ? 'Ops... você precisa escolher uma opção entre filme ou série.'

@@ -73,7 +73,7 @@ const ImageAndInformation = props => {
 
     return(
         <div className="image-and-informations">
-            <h2 tabIndex="0" title={'nome do filme ou série: ' + props.title}>
+            <h2 tabIndex="0" title={props.title}>
                 {
                     props.title
                     ? props.title
@@ -101,7 +101,7 @@ const ImageAndInformation = props => {
 
                 {
                     props.activeRequestProvidersList === false
-                    ? <h3>{'Número de temporadas: ' + props.numberOfSeasons }<p>{ 'Número de episódios: ' + props.numberOfEpisodes }</p></h3> 
+                    ? <h3>{ 'Número de temporadas: ' + props.numberOfSeasons }<p>{ 'Número de episódios: ' + props.numberOfEpisodes }</p></h3> 
                     : null
                 }
 
