@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './PopUpAceptPrivacyPolicy.css';
 
 export default function PopUpAceptPrivacyPolicy(props) {
@@ -6,6 +7,7 @@ export default function PopUpAceptPrivacyPolicy(props) {
     localStorage.getItem("user-acept");
     const [classNamePopUp, setClassNamePopUp] = useState(popUpPrivacyPolicy);
     const [delayPopUp, setDelayPopUp] = useState(0);
+
 
     function hidePopUp() {
         setClassNamePopUp('hide');
@@ -26,8 +28,8 @@ export default function PopUpAceptPrivacyPolicy(props) {
             <div className="text-warning" title="Aviso sobre política de privacidade">
                 <h4>
                     Nós usamos cookies para fornecer ao usúario uma melhor experiência.
-                    Ao continuar usando a pagína você aceita nossa <strong onClick={props.openPrivacyPlicy} title="Clique para abrir termos os termos da política de privacidade">política de privacidade</strong>.   
-                </h4>
+                    Ao continuar usando a pagína você aceita nossa <Link to="/politica-de-privacidade"><strong title="política de privacidade">política de privacidade</strong></Link>.
+                </h4>    
             </div>
             <div className="button-acept-and-policy">
                 <button onClick={hidePopUp} title="Botão para aceitar política de privacidade">Entendido</button>

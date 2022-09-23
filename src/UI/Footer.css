@@ -8,6 +8,7 @@ footer {
 
 footer > h3 > span {
     font-size: 25px;    
+
 }
 
 footer > h3 {
@@ -16,6 +17,7 @@ footer > h3 {
     padding: 8px 13.5px 13.5px 13.5px;
     font-weight: 500;
     font-size: 26px;
+    font-family: 'Poppins', sans-serif;
 }
 
 footer > h3 > p {
@@ -38,7 +40,7 @@ footer > h3 > p {
 .side-one > a, 
 .side-one > li > h5,
 .side-two > li > a,
-.side-two > li {
+.side-two > a {
     color: rgb(218, 74, 74);
     text-decoration: none;
     font-size: 16px;
@@ -52,9 +54,16 @@ footer > h3 > p {
 .side-one > a:hover, 
 .side-one > li > h5:hover,
 .side-two > li > a:hover,
-.side-two > li:hover {
+.side-two > a:hover {
     color: rgb(50, 110, 212);
     text-decoration: underline;
+}
+
+footer > p {
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    margin-top: 10px;
+    font-size: 14px;
 }
 
 @media screen and (max-width:580px) {

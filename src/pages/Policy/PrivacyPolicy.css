@@ -1,0 +1,7 @@
+.text-informations li {   
+    list-style: none;
+}
+
+.text-informations a {
+    color: rgb(212, 211, 211);
+}
