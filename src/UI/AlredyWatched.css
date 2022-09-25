@@ -79,7 +79,7 @@
 
 .align-content-watched > .organize-content-watched > h4::-webkit-scrollbar {
     width: 16px;      
-    height: 10px;
+    height: 6px;
 }
   
 .align-content-watched > .organize-content-watched > h4::-webkit-scrollbar-track {

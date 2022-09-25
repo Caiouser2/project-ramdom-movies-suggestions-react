@@ -2,7 +2,6 @@ import React, { useState, useEffect, forwardRef } from 'react';
 import SendRequestApi from '../components/SendRequestApi';
 import ImageAndInformation from './ImageAndInformation';
 import Overview from './Overview';
-import Api from '../services/Api';
 import './VisualContentApi.css';
 
 const VisualContentApi = forwardRef((props, refVisualContent) => {
@@ -10,52 +9,35 @@ const VisualContentApi = forwardRef((props, refVisualContent) => {
         props.onActiveScroll(0, 35, 1900); //send to function in App.js
     }
 
-    //section show dynamic content API on screen 
+    //section recive and show content API on screen 
     const [contentApi, setContentApi] = useState([]);
 
     const [selectedOptionOfUserMovieOrTvShow, setSelectedOptionOfUserMovieOrTvShow] = useState(''); 
 
     async function selectedOption(option) {
-        setSelectedOptionOfUserMovieOrTvShow(option); //option return true or false, option === true > movie; option !== true > TvShows
-        await props.selectedMovieorTvShow(option);
+        setSelectedOptionOfUserMovieOrTvShow(option); //option return true or false, option === true = movie; option !== true = TvShows
     }
  
     async function content(actualContent) {
         setContentApi(actualContent);
-        await props.returnedId(actualContent.id);
     }
-    //section get episode number
-    const [seasonAndEpisodeTvShows, setSeasonAndEpisodeTvShows] = useState({number_of_episodes:'Não informado', number_of_seasons:'Não informado',});
 
     useEffect(() => {
-        if (selectedOptionOfUserMovieOrTvShow === false && typeof contentApi.id === "number") {
-            async function requestIformationTvShows() {
-                await Api 
-                .get(`https://api.themoviedb.org/3/tv/${contentApi.id}?api_key=cc95f3c6dd41a11be17d581b9ec3f1f9&language=pt-BR`)
-                .then((response) => {
-                    setSeasonAndEpisodeTvShows(response.data)
-                })
-                .catch((err) => {
-                    console.error("ops! ocorreu um erro" + err);
-                })
-            }
-            requestIformationTvShows();
-        } 
-    },[contentApi.id, selectedOptionOfUserMovieOrTvShow]);
+        if (typeof contentApi.videos === "object") {
+            props.informationsOfVideos(contentApi.videos);
+        }
+    }, [contentApi, props]);
 
     useEffect(() => {
         if (typeof contentApi.title === "string" || typeof contentApi.name === "string") {
-            props.titlesSendToReciveTitle(contentApi.title || contentApi.name || undefined);
+            props.titlesSendToReciveTitle(contentApi.title || contentApi.name || undefined); // to App.js using in AlredyWatched.js
         }
-        // send title to App
     },[contentApi.name, contentApi.title, props]);
 
     useEffect(() => {
         if (contentApi.poster_path !== '') {
-            props.SendPathImageOfContent(contentApi.poster_path || undefined);
+            props.SendPathImageOfContent(contentApi.poster_path || undefined); // to App using in AlredyWatched.js
         }
-
-        // send poster path to App
     },[contentApi.poster_path, props]);
 
     //section active loanding and active errors  
@@ -72,7 +54,7 @@ const VisualContentApi = forwardRef((props, refVisualContent) => {
         }, 3200);
     }
 
-    const [error, setError] = useState(null);
+    const [MessageError, setError] = useState(null);
 
     function activeError(errorFun) {
         setError(errorFun);
@@ -89,7 +71,7 @@ const VisualContentApi = forwardRef((props, refVisualContent) => {
             yearOfContent={
                 contentApi.length === 0
                 ? ''
-                : selectedOptionOfUserMovieOrTvShow
+                : selectedOptionOfUserMovieOrTvShow === true
                 ? contentApi.release_date 
                 : contentApi.first_air_date
             }
@@ -104,19 +86,19 @@ const VisualContentApi = forwardRef((props, refVisualContent) => {
                 : false
             }
             image={contentApi.poster_path}
-            idGenre={
-                contentApi.genre_ids === undefined
-                ? [] 
-                : contentApi.genre_ids 
+            availableGenres={
+                contentApi.genres === undefined
+                ? contentApi.genres = []
+                : contentApi.genres
             }
-            activeRequestProvidersList={selectedOptionOfUserMovieOrTvShow}
+            userOptionMovieOrTvShow={selectedOptionOfUserMovieOrTvShow}
+            timeOfDurationMovie={contentApi.runtime}
             idContentRequestProvidersList={contentApi.id}
-            numberOfEpisodes={seasonAndEpisodeTvShows.number_of_episodes}
-            numberOfSeasons={seasonAndEpisodeTvShows.number_of_seasons}
-            tvShowInProduction={seasonAndEpisodeTvShows.in_production}/>
-
+            numberOfEpisodes={contentApi.number_of_episodes}
+            numberOfSeasons={contentApi.number_of_seasons}
+            /> 
             <div className="sinopse-and-form">
-                <Overview warningError={error} overview={contentApi.overview}/>
+                <Overview warningError={MessageError} overview={contentApi.overview}/>
                 <SendRequestApi onActiveScroll={onScrollListHeader} onActiveLoading={chargeTime} emptySelect={activeError} optionSelected={selectedOption} reciveContentApi={content}/>
                 <h5><span>⚠️</span> ANTES DE ASSITIR QUALQUER OBRA SUGERIDA VERIFIQUE A CLASSIFICAÇÃO INDICATIVA</h5>
             </div>
