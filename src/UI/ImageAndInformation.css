@@ -13,7 +13,18 @@
 }
 
 .image-and-informations > h2::-webkit-scrollbar {
-    width: 9px;      
+    width: 16px;      
+    height: 7px;
+}
+  
+.image-and-informations > h2::-webkit-scrollbar-track {
+    border-radius: 3px;
+}
+  
+.image-and-informations > h2::-webkit-scrollbar-thumb {
+    background-color: #686868;    
+    border: 2px solid black; 
+    border-radius: 3px;
     height: 10px;
 }
 

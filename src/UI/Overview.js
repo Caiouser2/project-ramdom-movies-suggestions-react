@@ -14,7 +14,7 @@ const Overview = props => {
     return(
         <div className="overview ">
             <h2 tabIndex="0" title="Sinopse">Sinopse</h2>
-            <h3 tabIndex="0" className={errorSelectEmpty} title={'Sinopse da obra:' + props.overview}>
+            <h3 tabIndex="0" className={errorSelectEmpty} title={'Sinopse da obra'}>
                 {
                     props.warningError === 'error'
                     ? 'Ops... você precisa escolher uma opção entre filme ou série.'
@@ -22,12 +22,11 @@ const Overview = props => {
                     ? 'Ops... parece que nosso serviço está indisponível no momento, agurade alguns segundos e tente novamente.'
                     :
                     props.overview === undefined
-                    ? 'Ainda não temos a sinopse desse contéudo, Clique no botão (Obter sugestão) para receber uma sugestão aleatória.'
+                    ? 'Clique no botão (Obter sugestão) para receber uma sugestão aleatória do que assistir.'
                     : props.overview === ''
-                    ? 'Perdão ainda nâo temos a sinopse. Mas como pedido de desculpas queremos que você clique denovo e receba uma nova sugestão mais decente. Mas caso prefira continuar a escolha é toda sua.'
+                    ? 'Perdão ainda nâo temos a sinopse. Mas como pedido de desculpas queremos que você clique denovo e receba uma nova sugestão.'
                     : props.overview 
                 }
-
             </h3>
         </div>
     );

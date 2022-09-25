@@ -5,7 +5,7 @@ export default function MenuNav(props) {
 
     function scrollHowUse() {
         setTimeout(() => {
-            props.onActiveScroll(0, props.objPositionsComponents.positionHowUse - 110, 1900);
+            props.onActiveScroll(0, props.objPositionsComponents.positionHowUse, 1900);
             if (width < 895) {
                 props.onCloseMenu('hide'); 
             }
@@ -14,7 +14,7 @@ export default function MenuNav(props) {
 
     function scrollTrailer() {
         setTimeout(() => {
-            props.onActiveScroll(0, props.objPositionsComponents.positionTrailer - 80, 1900);
+            props.onActiveScroll(0, props.objPositionsComponents.positionTrailer - 100, 1900);
             if (width < 895) {
                 props.onCloseMenu('hide'); 
             } 
@@ -23,7 +23,7 @@ export default function MenuNav(props) {
 
     function scrollAlredyWatched() {
         setTimeout(() => {
-            props.onActiveScroll(0, props.objPositionsComponents.positionAlredyWatched - 110, 1900);
+            props.onActiveScroll(0, props.objPositionsComponents.positionAlredyWatched - 60, 1900);
             if (width < 895) {
                 props.onCloseMenu('hide'); 
             } 
@@ -32,7 +32,7 @@ export default function MenuNav(props) {
 
     function scrollVisualContent() {
         setTimeout(() => {
-            props.onActiveScroll(0, props.objPositionsComponents.positionVisualContentApi - 110, 2900);
+            props.onActiveScroll(0, props.objPositionsComponents.positionVisualContentApi - 80, 2900);
             if (width < 895) {
                 props.onCloseMenu('hide'); 
             } 

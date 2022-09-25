@@ -29,12 +29,15 @@ export default function WatchSuggestedContent(props) {
         selectedOptionUser = 'tv';
     }
 
+    // console.log(linkWatchContent)
+
     useEffect(() => {
         async function getWatchProviders() {
             if (typeof props.id === "number") {
                 await Api
                 .get(`/${selectedOptionUser}/${props.id}/watch/providers?api_key=cc95f3c6dd41a11be17d581b9ec3f1f9&include_video_language&language=pt-BR`)
                 .then ((response) => {
+                    console.log(response)
                     setLinkWatchContent(response.data.results.BR.link);
                 })
                 .catch(() => {

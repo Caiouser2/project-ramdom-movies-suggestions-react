@@ -4,7 +4,6 @@ import Footer from "./UI/Footer";
 import WarningAdultContent from "./components/WarningAdultContent";
 import PopUpAceptPrivacyPolicy from "./UI/PopUpAceptPrivacyPolicy";
 import Trailer from "./components/Trailer";
-import Api from "./services/Api";
 import AlredyWatched from "./UI/AlredyWatched";
 import MenuNav from "./UI/MenuNav";
 import "./App.css";
@@ -33,44 +32,20 @@ function App() {
   }
 
   //section get videos: trailers, behind the cenes etc... and send for Trailer
-  const [optionUser, setOptionUser] = useState("");
-
-  function reciveSelectedOption(valueBoolean) {
-    setOptionUser(valueBoolean); //return true when movie is selected and false when tv show is selected
+  function reciveVideos(UrlVideos) {
+    setContentReturnedApiVideo(UrlVideos);
   }
-
-  const mainPathVideos =
-    "/videos?api_key=cc95f3c6dd41a11be17d581b9ec3f1f9&language=pt-BR";
 
   const [contentReturnedApiVideo, setContentReturnedApiVideo] = useState({
     results: [],
   });
 
-  function reciveId(recivedId) {
-    getVideo(recivedId, optionUser);
-  }
-
-  function getVideo(ids, optionUserBoolean) {
-    if (optionUserBoolean === true) {
-      getVideosApi("movie/", ids, mainPathVideos);
-    } else if (optionUserBoolean === false) {
-      getVideosApi("tv/", ids, mainPathVideos);
-    }
-  }
-
-  async function getVideosApi(optionUser, id, path) {
-    await Api.get(`${optionUser}${id}${path}`)
-      .then((response) => {
-        setContentReturnedApiVideo(response.data);
-      })
-      .catch((err) => {});
-  }
-
+  // section send informations for AlredyWatched.js 
   const [titleContent, setTitleContent] = useState();
 
   function reciveTitle(title) {
     if (title !== undefined) {
-      setTitleContent(title);
+      setTitleContent(title); //send to Trailer.js and AlredyWatched.js
     }
   }
 
@@ -79,8 +54,10 @@ function App() {
   function recivePathImage(url) {
     if (url !== undefined) {
       setPathImages(url);
-    }
+    } 
   }
+
+  // section menu nav
   const [visibleMenu, setVisibleMenu] = useState("");
 
   // checks when to show button button  menu or list
@@ -161,7 +138,7 @@ function App() {
     <div>
       <header>
         <div className="align-button-and-logo">
-          <h1 title="Nome do site: RAMDOM MOVIES SUGGESTION">
+          <h1>
             RAMDOM MOVIES SUGGESTIONS
           </h1>
           <div className="align-button-menu">
@@ -181,12 +158,11 @@ function App() {
       </header>
       <WarningAdultContent />
       <VisualContentApi
-        ref={refVisualContentApi}
-        onActiveScroll={smoothScrollTo}
-        SendPathImageOfContent={recivePathImage}
-        titlesSendToReciveTitle={reciveTitle}
-        returnedId={reciveId}
-        selectedMovieorTvShow={reciveSelectedOption}
+      ref={refVisualContentApi}
+      informationsOfVideos={reciveVideos}
+      onActiveScroll={smoothScrollTo}
+      SendPathImageOfContent={recivePathImage}
+      titlesSendToReciveTitle={reciveTitle}
       />
       <PopUpAceptPrivacyPolicy/>
       <div className="container-arrow-trailer">
@@ -204,7 +180,6 @@ function App() {
         images={pathImages}
       />
       <nav className="container-instruction" ref={refHowUse}>
-        {/*instruction on how to use site*/}
         <h2>COMO RECEBER A SUGESTÃO:</h2>
         <ol>
           <li>Abra o campo de seleção e escolha entre filme ou série.</li>
@@ -219,8 +194,8 @@ function App() {
           </li>
           <br />
           <li>
-            Após clicar em assitir agora, você será redirecionado ao site do The
-            Moive Database. Nele você poderá escolher que serviço usar para
+            Para assistir o contéudo sugerido clique em assitir agora, você será redirecionado ao site do The
+            Moive Database. Nele você poderá escolher que serviço de streaming usar para
             assitir o filme ou a série sugerida.
           </li>
         </ol>
