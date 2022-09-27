@@ -3,9 +3,9 @@ import './MenuNav.css';
 export default function MenuNav(props) {
     let width = window.innerWidth;
 
-    function scrollHowUse() {
+    function scrollOpnionOfUser() {
         setTimeout(() => {
-            props.onActiveScroll(0, props.objPositionsComponents.positionHowUse, 1900);
+            props.onActiveScroll(0, props.objPositionsComponents.positionOpnionOfUser, 1900);
             if (width < 895) {
                 props.onCloseMenu('hide'); 
             }
@@ -43,7 +43,7 @@ export default function MenuNav(props) {
         <div>
             <nav className={"container-list " + props.onShowMenu}>
                 <ul >
-                    <li tabIndex="0" onClick={scrollHowUse}>Como usar</li>
+                    <li tabIndex="0" onClick={scrollOpnionOfUser}>Diga o que achou da sugestão</li>
                     <li tabIndex="0" onClick={scrollTrailer}>Trailer</li>
                     <li tabIndex="0" onClick={scrollAlredyWatched}>Assistidos recentemente</li>
                     <li tabIndex="0" onClick={scrollVisualContent}>Obter sugestão</li>

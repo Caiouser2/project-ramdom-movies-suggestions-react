@@ -5,13 +5,23 @@
     margin-top: 15px;
     border-radius: 10px;
     text-align: center;
-    background-color: rgb(27, 27, 27);
-    border: 2.7px solid black;
+    background-color: rgb(26, 26, 26);
+    background-color: rgb(24, 24, 24);
+
+    /* border: 2.7px solid rgb(122, 122, 122);  */
+    border: 0;
+    
     color: rgb(221 220 220);
     font-family: Kdam Thmor Pro, Arial, Helvetica, sans-serif;
-    font-size:17px;
+    font-size: 19px;
     cursor: pointer;
 }
+
+.container-send-request > select:hover, 
+.container-send-request > button:hover {
+    background-color: rgb(14 14 14);
+}
+
 
 .container-send-request > button:active,
 .container-send-request > select:active {

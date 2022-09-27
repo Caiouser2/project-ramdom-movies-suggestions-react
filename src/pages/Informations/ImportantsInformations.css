@@ -6,13 +6,18 @@
     margin-bottom: 30px;
 }
 
+@media screen and (max-width:890px) {
+    .top-logo > h1 {
+        font-size: 20px;
+    }
+}
+
 .text-informations {
     color: rgb(212, 211, 211);
     font-family: 'Poppins', sans-serif;
     border: 3px solid black;
     border-radius: 7px;
     padding: 15px;
-    height: 100%;
     width: 85%;
     margin: 0 auto;
     background-color: rgb(37, 37, 37);
@@ -25,12 +30,8 @@
 }
 
 .link-inicial-page {
-    width: 84.5%;
+    width: 85%;
     margin: 7px auto;
-}
-
-Link {
-    color: white;
 }
 
 .link-inicial-page span {
@@ -40,6 +41,5 @@ Link {
 
 .link-inicial-page span:hover {
     color: rgb(47, 95, 177);
-
 }
 

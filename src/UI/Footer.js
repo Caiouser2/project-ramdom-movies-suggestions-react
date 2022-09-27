@@ -7,8 +7,8 @@ export default function Footer(props) {
             <h3 title="agradecimento pelo uso do site"><p>Feito com <span title="amor">❤️</span> para todos os apaixonados em novas descobertas.</p></h3>
             <div className="align-informations">
                 <ul className="side-one">
+                    <li title="Clique para relatar algum bug que você encontrou"><Link to="/como-usar-site">Como Usar</Link></li>
                     <li tabIndex="0" title="Informações importantes"><Link to="/informacoes-importantes">Informações Importantes</Link></li>
-                    <li title="Clique para relatar algum bug que você encontrou"><a href="mailto:ramdommoviecontact@gmail.com" rel="noreferrer" target="_blank">Encontrou algum bug ?</a></li>
                     <li title="Clique para mandar uma sugestão a nós via gmail"><a href="mailto:ramdommoviecontact@gmail.com" rel="noreferrer" target="_blank"> Tem alguma sugestão ?</a></li>
                 </ul>
                 <ul className="side-two">

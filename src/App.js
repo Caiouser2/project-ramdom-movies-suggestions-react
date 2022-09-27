@@ -4,6 +4,7 @@ import Footer from "./UI/Footer";
 import WarningAdultContent from "./components/WarningAdultContent";
 import PopUpAceptPrivacyPolicy from "./UI/PopUpAceptPrivacyPolicy";
 import Trailer from "./components/Trailer";
+import OpnionOfUser from './components/OpnionOfUser';
 import AlredyWatched from "./UI/AlredyWatched";
 import MenuNav from "./UI/MenuNav";
 import "./App.css";
@@ -97,7 +98,8 @@ function App() {
     setVisibleMenu(hide);
   }
 
-  const refHowUse = useRef(null);
+  // get distance of elements to the top  
+  const refPositionDivOpnionOfUser = useRef(null);
   const refReciveValueOfTrailer = useRef(null);
   const refAlredyWatched = useRef(null);
   const refVisualContentApi = useRef(null);
@@ -119,14 +121,14 @@ function App() {
   };
 
   useEffect(() => {
-    const getDistanceBetweenTopAndDivHowUse = refHowUse.current.offsetTop;
+    const getDistanceBetweenTopAndComponentOpnionOfUser = refPositionDivOpnionOfUser.current.offsetTop;
     const getDistanceBetweenTopAndComponentTrailer = refReciveValueOfTrailer.current.offsetTop;
     const getDistanceBetweenTopAndComponentAlredyWatched = refAlredyWatched.current.offsetTop;
     const getDistanceBetweenTopAndComponentVisualContentApi = refVisualContentApi.current.offsetTop;
 
     if (listenerOnResize === true) {
       setPositionYComponents({
-        positionHowUse: getDistanceBetweenTopAndDivHowUse,
+        positionOpnionOfUser: getDistanceBetweenTopAndComponentOpnionOfUser,
         positionTrailer: getDistanceBetweenTopAndComponentTrailer,
         positionAlredyWatched: getDistanceBetweenTopAndComponentAlredyWatched,
         positionVisualContentApi: getDistanceBetweenTopAndComponentVisualContentApi,
@@ -138,9 +140,7 @@ function App() {
     <div>
       <header>
         <div className="align-button-and-logo">
-          <h1>
-            RAMDOM MOVIES SUGGESTIONS
-          </h1>
+          <h1>RAMDOM MOVIES SUGGESTIONS</h1>
           <div className="align-button-menu">
             <button type="button" onClick={openMenu} className="button-open-and-close-menu">
               <div className="line-button"></div>
@@ -158,13 +158,13 @@ function App() {
       </header>
       <WarningAdultContent />
       <VisualContentApi
-      ref={refVisualContentApi}
-      informationsOfVideos={reciveVideos}
-      onActiveScroll={smoothScrollTo}
-      SendPathImageOfContent={recivePathImage}
-      titlesSendToReciveTitle={reciveTitle}
+        ref={refVisualContentApi}
+        informationsOfVideos={reciveVideos}
+        onActiveScroll={smoothScrollTo}
+        SendPathImageOfContent={recivePathImage}
+        titlesSendToReciveTitle={reciveTitle}
       />
-      <PopUpAceptPrivacyPolicy/>
+      <PopUpAceptPrivacyPolicy />
       <div className="container-arrow-trailer">
         <div className="arrow-trailer"></div>
         <div className="arrow-trailer"></div>
@@ -179,28 +179,8 @@ function App() {
         titles={titleContent}
         images={pathImages}
       />
-      <nav className="container-instruction" ref={refHowUse}>
-        <h2>COMO RECEBER A SUGESTÃO:</h2>
-        <ol>
-          <li>Abra o campo de seleção e escolha entre filme ou série.</li>
-          <br />
-          <li>Clique em Obter sugestão.</li>
-          <br />
-          <li>
-            Ao receber a sugestão leia a sinopse e veja as informações de:
-            genêro, lançamento, duração e número de episódios para séries. Se
-            gostar da sugestão clique em assistir agora, se não clique novamente
-            em Obter sugestão.
-          </li>
-          <br />
-          <li>
-            Para assistir o contéudo sugerido clique em assitir agora, você será redirecionado ao site do The
-            Moive Database. Nele você poderá escolher que serviço de streaming usar para
-            assitir o filme ou a série sugerida.
-          </li>
-        </ol>
-      </nav>
-      <Footer/>
+      <OpnionOfUser ref={refPositionDivOpnionOfUser} />
+      <Footer />
     </div>
   );
 }
