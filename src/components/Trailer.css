@@ -40,7 +40,7 @@
     min-width: 510px;
     min-height: 303px;
     margin-bottom: 50px;
-    border: 3px solid rgb(59, 59, 59);
+    border: 0;
     border-radius: 10px;
     -webkit-box-shadow: 10px 9px 16px -5px rgba(0,0,0,0.54); 
     box-shadow: 10px 9px 16px -5px rgba(0,0,0,0.54);
@@ -49,12 +49,14 @@
 .container-trailer > .iframe-null {
     position: absolute;
     top: 0%;
-    width: 62.5%;
-    height: 90%;
+    width: 60%;
+    height: 89%;
+    max-width: 836.25px;
+    max-height: 487.63px;
     min-width: 510px;
     min-height: 303px;
     margin-bottom: 50px;
-    border: 3px solid rgb(59, 59, 59);
+    border: 0;
     background-color: rgb(33, 33, 32);
     border-radius: 10px;
     -webkit-box-shadow: 10px 9px 16px -5px rgba(0,0,0,0.54); 
