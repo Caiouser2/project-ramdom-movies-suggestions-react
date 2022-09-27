@@ -16,7 +16,7 @@
 
 .container-list > ul > li:hover {
     border: 3px solid black;
-    background-color: rgb(226, 149, 61);
+    background-color: rgb(226, 143, 48);
     color: black;
 }
 

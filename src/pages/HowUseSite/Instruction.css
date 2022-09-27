@@ -1,0 +1,41 @@
+.container-instruction {
+    width: 73%;
+    margin: 40px auto 10px auto;
+    background-color:rgb(37, 37, 37);
+    border-left: rgb(226, 149, 61) 13px solid;
+    color: rgb(221 220 220);
+    border-radius: 5px;
+    padding: 10px 30px;
+    font-size: 17px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container-instruction > h2 {
+    padding: 10px;
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 10px;
+    border-bottom: 3px solid white;
+}
+
+.container-instruction > ol {
+    padding: 10px 20px;
+}
+
+.container-instruction > ol > li {
+    font-size: 18.5px;
+}
+
+.link-inicial-page-in-instruction {
+    width: 73%;
+    margin: 7px auto;
+}
+
+.link-inicial-page-in-instruction span {
+    color: rgb(50, 110, 212);
+    
+}
+
+.link-inicial-page-in-instruction span:hover {
+    color: rgb(47, 95, 177);
+}

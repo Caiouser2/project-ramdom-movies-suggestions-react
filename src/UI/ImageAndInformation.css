@@ -35,11 +35,13 @@
 }
 
 .container-image {
-    background-color: rgb(33, 33, 32);
+    background-color: rgb(27, 27, 27);
+    /* background-color: rgb(21, 21, 20); */
+
     border-radius: 10px 10px 0 0;
     width: 300px;
     height: 450px;
-    border: 2.7px solid black;
+    /* border: 2.7px solid black; */
     position: relative;
     border-bottom: 0;
 }
@@ -63,8 +65,8 @@
     letter-spacing: 0.5px;
     padding: 3px 7px;
     font-size: 19px;
-    border: 2.7px solid black;
-    background-color: rgb(27, 27, 27);
+    /* border: 2.7px solid rgb(156, 156, 156); */
+    background-color: rgb(24, 24, 24);
     border-radius: 10px;
 }
 

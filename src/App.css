@@ -1,6 +1,6 @@
 header {
     width:  100%;
-    background-color: rgb(33, 33, 32);
+    background-color: rgb(39, 39, 39);
     padding: 15px 11px;
     letter-spacing: 1.2px;
     margin-bottom: 30px;
@@ -87,34 +87,6 @@ header {
     transition: all 1s ease 0.1s;
     user-select: none;
     transform: rotate(134deg);
-}
-
-.container-instruction {
-    width: 80%;
-    margin: 80px auto;
-    background-color:rgb(37, 37, 37);
-    border-left: rgb(226, 149, 61) 13px solid;
-    color: rgb(221 220 220);
-    border-radius: 5px;
-    padding: 10px 30px;
-    font-size: 17px;
-    max-width: 780px;
-}
-
-.container-instruction > h2 {
-    padding: 10px;
-    text-align: center;
-    font-size: 25px;
-    margin-bottom: 10px;
-    border-bottom: 3px solid white;
-}
-
-.container-instruction > ol {
-    padding: 10px 20px;
-}
-
-.container-instruction > ol > li {
-    font-size: 18.5px;
 }
 
 .error {
