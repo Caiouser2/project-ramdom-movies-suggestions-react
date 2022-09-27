@@ -45,18 +45,18 @@
 }
 
 .align-buttons > button {
-    width: 26%;
+    width: 27%;
     height: 44px;
     border-radius: 7px;
     color: rgb(221 220 220);
-    background-color: rgb(37, 37, 37);
+    background-color: rgb(43, 43, 43);
     font-size: 16px;
     cursor: pointer;
     font-family: Kdam Thmor Pro;
 }
 
 .align-buttons > button:hover {
-    background-color: rgb(46, 46, 46);
+    background-color: rgb(75, 75, 75);
 }
 
 .align-buttons > button:nth-last-child(1) {
