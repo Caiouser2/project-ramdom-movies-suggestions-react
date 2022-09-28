@@ -79,7 +79,15 @@ export default function WatchSuggestedContent(props) {
 
     function renderArrowMoreInformationAboutJustWatch() {
         if (typeof linkWatchContent === "string") {
-            return <div  className="container-icon-more-and-less" onClick={visibleMessage} title="Clique para saber mais sobre o redirecinamento"> <button type="button" className={ arrowMoreInformations + " icon-more-and-less"}></button></div>;
+            return(
+                <div>
+                    {
+                        arrowMoreInformations === 'arrow-up'
+                        ? <div className={"container-icon-more-and-less2 " + arrowMoreInformations} onClick={visibleMessage} title="Clique para saber mais sobre o redirecinamento"></div>
+                        : <div className={"container-icon-more-and-less1 " + arrowMoreInformations} onClick={visibleMessage} title="Clique para saber mais sobre o redirecinamento"></div>
+                    }
+                </div>
+            );
         } else {
             return null; 
         }

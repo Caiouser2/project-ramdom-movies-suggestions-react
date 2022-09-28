@@ -61,12 +61,12 @@ function App() {
   // section menu nav
   const [visibleMenu, setVisibleMenu] = useState("");
 
-  // checks when to show button button  menu or list
+  // checks when to show button menu or only list
   useEffect(() => {
     let mainWidthDevice = window.innerWidth;
 
     if (mainWidthDevice < 895) {
-      setVisibleMenu("hide");
+      setVisibleMenu("hide"); //device mobile or tablet
     }
   }, []);
 
@@ -97,15 +97,8 @@ function App() {
   function CloseMenuWhenClicked(hide) {
     setVisibleMenu(hide);
   }
-
-  // get distance of elements to the top  
-  const refPositionDivOpnionOfUser = useRef(null);
-  const refReciveValueOfTrailer = useRef(null);
-  const refAlredyWatched = useRef(null);
-  const refVisualContentApi = useRef(null);
-
-  const [positionYComponents, setPositionYComponents] = useState({});
-  const [listenerOnResize, setListenerOnResize] = useState(true);
+  //set device mobile or desktop
+  const [listenerOnResize, setListenerOnResize] = useState(true); //verify if device is desktop or mobile
 
   function getPositions() {
     setListenerOnResize(true);
@@ -119,7 +112,15 @@ function App() {
     getPositions();
     verifyTypeResposiveMenu();
   };
-
+  
+  // get distance of elements to the top  
+  const [positionYComponents, setPositionYComponents] = useState({}); // sent to MenuNav
+  
+  const refPositionDivOpnionOfUser = useRef(null);
+  const refReciveValueOfTrailer = useRef(null);
+  const refAlredyWatched = useRef(null);
+  const refVisualContentApi = useRef(null);
+  
   useEffect(() => {
     const getDistanceBetweenTopAndComponentOpnionOfUser = refPositionDivOpnionOfUser.current.offsetTop;
     const getDistanceBetweenTopAndComponentTrailer = refReciveValueOfTrailer.current.offsetTop;
@@ -141,14 +142,9 @@ function App() {
       <header>
         <div className="align-button-and-logo">
           <h1>RAMDOM MOVIES SUGGESTIONS</h1>
-          <div className="align-button-menu">
-            <button type="button" onClick={openMenu} className="button-open-and-close-menu">
-              <div className="line-button"></div>
-              <div className="line-button"></div>
-              <div className="line-button"></div>
+            <button type="button" className={"button-open-and-close-menu"} onClick={openMenu}>
             </button>
           </div>
-        </div>
         <MenuNav
           objPositionsComponents={positionYComponents}
           onActiveScroll={smoothScrollTo}
@@ -156,7 +152,7 @@ function App() {
           onCloseMenu={CloseMenuWhenClicked}
         />
       </header>
-      <WarningAdultContent />
+      <WarningAdultContent/>
       <VisualContentApi
         ref={refVisualContentApi}
         informationsOfVideos={reciveVideos}
@@ -164,7 +160,7 @@ function App() {
         SendPathImageOfContent={recivePathImage}
         titlesSendToReciveTitle={reciveTitle}
       />
-      <PopUpAceptPrivacyPolicy />
+      <PopUpAceptPrivacyPolicy/>
       <div className="container-arrow-trailer">
         <div className="arrow-trailer"></div>
         <div className="arrow-trailer"></div>

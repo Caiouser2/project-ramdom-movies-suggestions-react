@@ -12,6 +12,7 @@
     z-index: 10;
     /* border: 2.7px solid black; */
     border-top: 0;
+    margin-bottom: 8px;
 }
 
 .align-logo-tmdb {
@@ -45,39 +46,32 @@
     text-decoration: underline;
 }
 
-.container-icon-more-and-less {
-    transform: translateX(30px);
+.container-icon-more-and-less1 {
+    transform: translate(28px, 7px);
     width: 40px;
     height: 40px;
     text-align: center;
     text-align: -webkit-center;
     cursor: pointer;
     user-select: none;
-}
-
-.icon-more-and-less {
-	width:  15px;
-	height: 15px;
-	background: transparent;
-	border-top: 4px solid white;
-	border-right: 4px solid white;
-    border-left: 0;
-    border-bottom: 0;
-    border-radius: 3px;
-	box-shadow: 0 0 0 rgb(221 220 220);
+    background-image: url("../images/icon-chevron-down.png");
+    background-repeat: no-repeat;
     cursor: pointer;
     transition: all 1s ease 0.1s;
+}
+
+.container-icon-more-and-less2 {
+    transform: translate(28px, 7px);
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    text-align: -webkit-center;
+    cursor: pointer;
     user-select: none;
-}
-
-.arrow-down {
-    margin-top: 10px;
-    transform: rotate(134deg);
-}
-
-.arrow-up {
-    margin-top: 16px !important;
-    transform: rotate(314deg) !important;
+    background-image: url("../images/icon-chevron-up.png");
+    background-repeat: no-repeat;
+    cursor: pointer;
+    transition: all 0.5s ease 0.1s;
 }
 
 .warning-content-justwatch-text {
@@ -102,26 +96,4 @@
 
 .warning-content-justwatch-text > h5 > a:hover {
     text-decoration: underline;
-}
-
-@media screen and (max-width:830px) {
-    .container-icon-more-and-less {
-        transform: translateX(60px);
-    }
-}
-
-@media screen and (max-width:469px) {
-    .container-icon-more-and-less {
-        transform: translateX(19px);
-    }
-}
-
-@media screen and (max-width:381px) {
-    .align-logo-tmdb {
-        margin-left: 0;
-    }
-
-    .container-icon-more-and-less {
-        transform: translateX(8px);
-    }
 }

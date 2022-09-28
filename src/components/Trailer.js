@@ -28,7 +28,7 @@ const Trailer = forwardRef((props, refTrailer) => {
                     : <div className="iframe-null"></div> 
                 }
             </div>
-            <h5>Aviso: alguns filmes e séries não contém trailers.</h5>
+            {/* <h5>Aviso: alguns filmes e séries não contém trailers.</h5> */}
         </div>
     );
 })

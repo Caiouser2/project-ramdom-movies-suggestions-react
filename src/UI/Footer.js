@@ -14,6 +14,7 @@ export default function Footer(props) {
                 <ul className="side-two">
                     <li tabIndex="0" title="Link que te envia para site do THE MOVIE DATABASE"><a target="_blank" href="https://www.themoviedb.org/" rel="noreferrer">Filmes e séries obtidos em: <p>THE MOVIE DATABASE</p></a></li>
                     <li tabIndex="0" title="política de privacidade"><Link to="/politica-de-privacidade">Política de Privacidade</Link></li>
+                    <li><a target="_blank" rel="noreferrer" href="https://icons8.com/icon/ykhOFnBIQN8l/menu">Menu</a> <span>and</span> <a href="https://icons8.com/icon/99991/chevron-down" rel="noreferrer">Chevron Up And Down</a> <span>icons by </span><a target="_blank" rel="noreferrer" href="https://icons8.com">Icons8</a></li>
                 </ul>
             </div>
         </footer>
