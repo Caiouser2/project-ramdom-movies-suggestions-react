@@ -34,7 +34,8 @@ header {
     background-image: url('./images/icon-menu.png');
     background-repeat: no-repeat;
     display: none;
-    background-size: 42px;
+    background-position: center;
+    background-size: 40px;
 }
 
 @media screen and (max-width:890px) {
@@ -77,6 +78,17 @@ header {
     transition: all 1s ease 0.1s;
     user-select: none;
     transform: rotate(134deg);
+}
+
+@media screen and (max-width:466px) {
+    .align-button-and-logo > h1 {
+        font-size: 16px;
+    }
+
+    .button-open-and-close-menu {
+        background-size: 32px;
+        background-position: center;
+    }
 }
 
 .error {

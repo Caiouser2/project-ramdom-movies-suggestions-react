@@ -1,0 +1,31 @@
+.align-informations-content {
+    margin-top: 3px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.align-informations-content > h3,
+.align-informations-content > .seasons-and-episodes > h3 {
+    color: rgb(221 220 220); 
+    margin: 7px 7px 0 0;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    padding: 3px 7px;
+    font-size: 20.5px;
+    /* border: 2.7px solid rgb(156, 156, 156); */
+    background-color: rgb(21, 21, 20);
+    border-radius: 10px;
+}
+
+.align-informations-content > h3 > strong,
+.align-informations-content > .seasons-and-episodes > h3 > strong {
+    color: rgb(221, 136, 39) !important;
+}
+
+@media screen and (max-width:937px) {
+    .align-informations-content > h3,
+.align-informations-content > .seasons-and-episodes > h3 {
+    width: 100%;
+}
+}

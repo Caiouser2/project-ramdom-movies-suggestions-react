@@ -10,7 +10,8 @@
 }
 
 .container-content-watched::-webkit-scrollbar {
-    width: 16px;      
+    width: 16px;    
+    height: 16px;  
 }
   
 .container-content-watched::-webkit-scrollbar-track{
@@ -77,7 +78,6 @@
 }
 
 .align-content-watched > .organize-content-watched > h4::-webkit-scrollbar {
-    width: 16px;      
     height: 6px;
 }
   
@@ -91,6 +91,17 @@
     border: 2px solid rgb(139, 139, 139); 
     border-radius: 3px;
     height: 10px;
+}
+
+@media screen and (max-width:830px) {
+    .organize-content-watched > h4 {
+        width: 190px;
+    }
+
+    .organize-content-watched > img {
+        width: 210px;
+        height: 360px;
+    }
 }
 
 @media screen and (max-width:466px) {
@@ -107,7 +118,7 @@
     }
 
     .organize-content-watched > img {
-        width: 200px;
-        height: 350px;
+        width: 180px;
+        height: 320px;
     }
 }

@@ -28,7 +28,7 @@
     height: 10px;
 }
 
-.image-and-informations > h2, .overview >h2 {
+.image-and-informations > h2 {
     margin-bottom: 5px;
     color: rgb(221, 136, 39) !important;
     letter-spacing:1.2px;
@@ -58,25 +58,9 @@
     font-size:22px;
 }
 
-.release-date-and-adult-content > h3 {
-    color: rgb(221 220 220); 
-    margin-top: 7px;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    padding: 3px 7px;
-    font-size: 19px;
-    /* border: 2.7px solid rgb(156, 156, 156); */
-    background-color: rgb(21, 21, 20);
-    border-radius: 10px;
-}
-
 @media screen and (max-width:830px) {
     .image-and-informations {
         margin: 0 12px;
-    }
-
-    .release-date-and-adult-content > h3 {
-        text-align: center;
     }
 
     .image-and-informations {
