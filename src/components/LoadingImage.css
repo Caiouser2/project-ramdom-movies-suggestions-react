@@ -1,11 +1,12 @@
 .container-loading {
-    color: rgb(221 220 220);
+    color: white;
     text-align: center;
     letter-spacing:1px;
     font-size: 20px;
     width: 100%;
     bottom: 45%;
     position: absolute;
+    background-color: transparent;
 }
 
 .loading-circle {

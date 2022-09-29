@@ -5,7 +5,7 @@ const OpnionOfUser = forwardRef((props, refPositionDiv) => {
     const [hideForm, setHideForm] = useState(false);
 
     function returnIframeForm() {
-        return <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeHjepNBReQJj3Je9RKrd8EzZqdDdMzysfgYvUjrTD4rbipWA/viewform?embedded=true" id="iframe-form" title="iframe-form-google" width="77%" height="350px"  frameborder="0" marginheight="0" marginwidth="0">Carregando…</iframe>
+        return <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeHjepNBReQJj3Je9RKrd8EzZqdDdMzysfgYvUjrTD4rbipWA/viewform?embedded=true" id="iframe-form" title="iframe-form-google" width="78%" height="350px"  frameborder="0" marginheight="0" marginwidth="0">Carregando…</iframe>
     }
 
     return(

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, forwardRef } from 'react';
 import SendRequestApi from '../components/SendRequestApi';
+import MoreInformationAboutContent from '../components/MoreInformationAboutContent';
 import ImageAndInformation from './ImageAndInformation';
 import Overview from './Overview';
 import './VisualContentApi.css';
@@ -60,49 +61,57 @@ const VisualContentApi = forwardRef((props, refVisualContent) => {
         setError(errorFun);
     }
 
-    return(
-        <div className="container-visual-content" ref={refVisualContent}>
-            <ImageAndInformation reciveActivation={activeLoading}
-            title={
-                selectedOptionOfUserMovieOrTvShow
-                ? contentApi.title
-                : contentApi.name
-            }
+    return (
+      <div className="container-visual-content" ref={refVisualContent}>
+        <ImageAndInformation
+          title={
+            selectedOptionOfUserMovieOrTvShow
+            ? contentApi.title
+            : contentApi.name
+          }
+          idContentRequestProvidersList={contentApi.id}
+          image={contentApi.poster_path}
+          reciveActivation={activeLoading}
+          userOptionMovieOrTvShow={selectedOptionOfUserMovieOrTvShow}
+        />
+        <div className="sinopse-and-form">
+          <Overview
+            warningError={MessageError}
+            overview={contentApi.overview}
+          />
+          <MoreInformationAboutContent
             yearOfContent={
-                contentApi.length === 0
-                ? ''
+              contentApi.length === 0
+                ? ""
                 : selectedOptionOfUserMovieOrTvShow === true
-                ? contentApi.release_date 
+                ? contentApi.release_date
                 : contentApi.first_air_date
             }
-            verifyObejectEmpty={
-                contentApi.length === 0
-                ? false
-                : true
-            }
-            adultContent={
-                selectedOptionOfUserMovieOrTvShow
-                ? true
-                : false
-            }
-            image={contentApi.poster_path}
+            verifyObejectEmpty={contentApi.length === 0 ? false : true}
+            adultContent={selectedOptionOfUserMovieOrTvShow ? true : false}
             availableGenres={
-                contentApi.genres === undefined
-                ? contentApi.genres = []
+              contentApi.genres === undefined
+                ? (contentApi.genres = [])
                 : contentApi.genres
             }
             userOptionMovieOrTvShow={selectedOptionOfUserMovieOrTvShow}
             timeOfDurationMovie={contentApi.runtime}
-            idContentRequestProvidersList={contentApi.id}
             numberOfEpisodes={contentApi.number_of_episodes}
             numberOfSeasons={contentApi.number_of_seasons}
-            /> 
-            <div className="sinopse-and-form">
-                <Overview warningError={MessageError} overview={contentApi.overview}/>
-                <SendRequestApi onActiveScroll={onScrollListHeader} onActiveLoading={chargeTime} emptySelect={activeError} optionSelected={selectedOption} reciveContentApi={content}/>
-                <h5><span>⚠️</span> ANTES DE ASSITIR QUALQUER OBRA SUGERIDA VERIFIQUE A CLASSIFICAÇÃO INDICATIVA</h5>
-            </div>
+          />
+          <SendRequestApi
+            onActiveScroll={onScrollListHeader}
+            onActiveLoading={chargeTime}
+            emptySelect={activeError}
+            optionSelected={selectedOption}
+            reciveContentApi={content}
+          />
+          <h5>
+            <span>⚠️</span> ANTES DE ASSITIR QUALQUER OBRA SUGERIDA VERIFIQUE A
+            CLASSIFICAÇÃO INDICATIVA
+          </h5>
         </div>
+      </div>
     );
 });
 

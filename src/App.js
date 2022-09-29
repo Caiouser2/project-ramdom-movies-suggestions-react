@@ -1,7 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import VisualContentApi from "./UI/VisualContentApi";
 import Footer from "./UI/Footer";
-import WarningAdultContent from "./components/WarningAdultContent";
 import PopUpAceptPrivacyPolicy from "./UI/PopUpAceptPrivacyPolicy";
 import Trailer from "./components/Trailer";
 import OpnionOfUser from './components/OpnionOfUser';
@@ -152,7 +151,6 @@ function App() {
           onCloseMenu={CloseMenuWhenClicked}
         />
       </header>
-      <WarningAdultContent/>
       <VisualContentApi
         ref={refVisualContentApi}
         informationsOfVideos={reciveVideos}
