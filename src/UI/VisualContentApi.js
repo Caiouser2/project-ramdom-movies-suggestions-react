@@ -106,10 +106,6 @@ const VisualContentApi = forwardRef((props, refVisualContent) => {
             optionSelected={selectedOption}
             reciveContentApi={content}
           />
-          <h5>
-            <span>⚠️</span> ANTES DE ASSITIR QUALQUER OBRA SUGERIDA VERIFIQUE A
-            CLASSIFICAÇÃO INDICATIVA
-          </h5>
         </div>
       </div>
     );

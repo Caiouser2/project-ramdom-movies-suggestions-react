@@ -103,6 +103,11 @@ header {
     display: inherit !important;
 }
 
+.show-initial {
+    display: initial !important;
+
+}
+
 .hide {
     display: none !important;
 }

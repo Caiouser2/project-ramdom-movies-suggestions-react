@@ -9,7 +9,7 @@ const Trailer = forwardRef((props, refTrailer) => {
                     {
                         props.videos.results.length !== 0
                         ? props.videos.results[0].name
-                        : `Nenhum vídeo relacionado a: ${props.titles === undefined ? '...' : props.titles}`
+                        : `Não há trailer de: ${props.titles === undefined ? '...' : props.titles}`
                     }
                 </h2>
             </div>
