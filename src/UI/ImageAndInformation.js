@@ -44,9 +44,9 @@ const ImageAndInformation = props => {
           {
             props.image !== undefined && props.image !== "" 
             ? returnImage()
-            : "Perdão ainda não temos a capa do contéudo"
+            : null
           }
-          <LoadingImage activated={props.reciveActivation} />
+          <LoadingImage activated={props.reciveActivation}/>
         </div>
 
         <div>
@@ -54,13 +54,13 @@ const ImageAndInformation = props => {
             UrlImages={mainUrlImage}
             sendRequest={
               typeof props.userOptionMovieOrTvShow !== "boolean"
-                ? null
-                : props.userOptionMovieOrTvShow
+              ? null
+              : props.userOptionMovieOrTvShow
             }
             id={
               typeof props.idContentRequestProvidersList !== "number"
-                ? null
-                : props.idContentRequestProvidersList
+              ? null
+              : props.idContentRequestProvidersList
             }
           />
         </div>
