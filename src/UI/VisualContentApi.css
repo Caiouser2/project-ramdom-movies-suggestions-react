@@ -17,18 +17,6 @@
     margin-right: 10px;
 }
 
-.sinopse-and-form > h5 {
-    color: rgb(221 220 220); 
-    margin-bottom: 5px;
-    text-align: center;
-    font-size: 13px;
-    letter-spacing: 0.3px;
-}
-
-.sinopse-and-form > h5 > span {
-    font-size: 17px;
-}
-
 @media screen and (max-width:890px) {
     .container-visual-content {
         margin-top: 130px;
