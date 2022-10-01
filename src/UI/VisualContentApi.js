@@ -69,6 +69,7 @@ const VisualContentApi = forwardRef((props, refVisualContent) => {
             ? contentApi.title
             : contentApi.name
           }
+
           idContentRequestProvidersList={contentApi.id}
           image={contentApi.poster_path}
           reciveActivation={activeLoading}
@@ -82,17 +83,22 @@ const VisualContentApi = forwardRef((props, refVisualContent) => {
           <MoreInformationAboutContent
             yearOfContent={
               contentApi.length === 0
-                ? ""
-                : selectedOptionOfUserMovieOrTvShow === true
-                ? contentApi.release_date
-                : contentApi.first_air_date
+              ? ""
+              : selectedOptionOfUserMovieOrTvShow === true
+              ? contentApi.release_date
+              : contentApi.first_air_date
+            }
+            rateUsers={
+              contentApi.vote_average === undefined
+              ? ''
+              : contentApi.vote_average
             }
             verifyObejectEmpty={contentApi.length === 0 ? false : true}
             adultContent={selectedOptionOfUserMovieOrTvShow ? true : false}
             availableGenres={
               contentApi.genres === undefined
-                ? (contentApi.genres = [])
-                : contentApi.genres
+              ? (contentApi.genres = [])
+              : contentApi.genres
             }
             userOptionMovieOrTvShow={selectedOptionOfUserMovieOrTvShow}
             timeOfDurationMovie={contentApi.runtime}

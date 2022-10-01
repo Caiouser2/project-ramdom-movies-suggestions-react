@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import './MoreInformationAboutContent.css';
 
 export default function MoreInformationAboutContent(props) {
@@ -53,11 +53,26 @@ export default function MoreInformationAboutContent(props) {
         }
     }
 
+    const [valueRateFromUsers, setValueRateFromUsers] = useState(props.rateUsers);
+    let formartValueRateFromUsers = String(props.rateUsers);
+
+    useEffect(() => {
+        let firtNumber = formartValueRateFromUsers[0];
+        if (firtNumber === undefined) {
+            firtNumber = '';
+        }
+        let secondNumber = formartValueRateFromUsers[2];
+        if (secondNumber === undefined) {
+            secondNumber = '';
+        }
+
+        setValueRateFromUsers(`${firtNumber}${secondNumber}%`)
+        console.log(props.rateUsers);
+
+    }, [formartValueRateFromUsers, props]);
+
     return (
       <div className="align-informations-content">
-
-
-
         {
             props.userOptionMovieOrTvShow === false
             ? returnNumberOfSeasons()
@@ -71,6 +86,13 @@ export default function MoreInformationAboutContent(props) {
             ? <h3><strong>Duração: </strong> {runTimeMovieModified}</h3>
             : null
         }
+
+        {
+            props.rateUsers === ''
+            ? null
+            : <h3><strong>Aprovação: </strong>{valueRateFromUsers}</h3>
+        }
+
 
         {props.yearOfContent !== "" ? (
           <h3 tabIndex="0" title={"Data de lançamento: " + props.yearOfContent}>

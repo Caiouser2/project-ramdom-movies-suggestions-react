@@ -20,12 +20,18 @@ export default function Instruction() {
               gostar da sugestão clique em assistir agora, se não clique
               novamente em Obter sugestão.
             </li>
-            <br />
+            <br/>
             <li>
               Para assistir o contéudo sugerido clique em assitir agora, você
               será redirecionado ao site do The Moive Database. Nele você poderá
               escolher que serviço de streaming usar para assitir o filme ou a
               série sugerida.
+            </li>
+            <br/>
+            <li>
+              Depois de já ter assitido retorne ao site e de sua opnião
+              sobre o que achou do filme ou da série que lhe foi sugerido. 
+              Isso ajuda a entendermos se nossas sugestões estão sendo boas!
             </li>
           </ol>
         </nav>
