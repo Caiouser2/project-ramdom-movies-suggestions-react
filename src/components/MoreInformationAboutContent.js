@@ -69,43 +69,44 @@ export default function MoreInformationAboutContent(props) {
     }, [formartValueRateFromUsers, props]);
 
     return (
-      <div className="align-informations-content">
-        {
-            props.userOptionMovieOrTvShow === false
-            ? returnNumberOfSeasons()
-            : null
-        }
+        <div className="align-informations-content">
+            {
+                props.userOptionMovieOrTvShow === false
+                ? returnNumberOfSeasons()
+                : null
+            }
 
-        {
-            props.userOptionMovieOrTvShow === false 
-            ? returnNumberOfEpisodes()
-            : props.timeOfDurationMovie !== undefined 
-            ? <h3><strong>Duração: </strong> {runTimeMovieModified}</h3>
-            : null
-        }
+            {
+                props.userOptionMovieOrTvShow === false 
+                ? returnNumberOfEpisodes()
+                : props.timeOfDurationMovie !== undefined 
+                ? <h3><strong>Duração: </strong> {runTimeMovieModified}</h3>
+                : null
+            }
 
-        {
-            props.rateUsers === ''
-            ? null
-            : <h3><strong>Aprovação: </strong>{valueRateFromUsers}</h3>
-        }
+            {
+                props.yearOfContent !== "" ? (
+                    <h3 tabIndex="0" title={"Data de lançamento: " + props.yearOfContent}>
+                        <strong>Lançamento: </strong>
+                        {props.yearOfContent ? `${day}-${month}-${year}` : ""}
+                    </h3>
+            ) : null
+            }
 
+            {
+                props.rateUsers === ''
+                ? null
+                : <h3><strong>Aprovação: </strong>{valueRateFromUsers}</h3>
+            }
 
-        {props.yearOfContent !== "" ? (
-          <h3 tabIndex="0" title={"Data de lançamento: " + props.yearOfContent}>
-            <strong>Lançamento: </strong>
-            {props.yearOfContent ? `${day}-${month}-${year}` : ""}
-          </h3>
-        ) : null}
-
-{props.availableGenres.length > 0 ? (
-          <h3>
-            <strong>Genêro: </strong>
-            {props.availableGenres.map((genres) => ` ${genres.name },`)}
-          </h3>
-        ) : null}
-
-
-      </div>
+            {
+                props.availableGenres.length > 0 ? (
+                    <h3>
+                        <strong>Genêro: </strong>
+                        {props.availableGenres.map((genres) => ` ${genres.name },`)}
+                    </h3>
+                ) : null
+            }
+        </div>
     );
 }

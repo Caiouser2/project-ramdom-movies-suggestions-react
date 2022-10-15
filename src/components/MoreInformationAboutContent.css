@@ -23,7 +23,7 @@
     color: rgb(221, 136, 39) !important;
 }
 
-@media screen and (max-width:937px) {
+@media screen and (max-width:1020px) {
     .align-informations-content > h3,
     .align-informations-content > .seasons-and-episodes > h3 {
         width: 100%;

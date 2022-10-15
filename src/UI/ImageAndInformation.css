@@ -102,23 +102,23 @@
 
 .div-open-PopUp-trailer {
     background-image: url('../images/icon-play-white.png');
-    width: 26px;
-    height: 26px;
+    width: 30px;
+    height: 30px;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 20px;
+    background-size: 22px;
     background-color: rgb(26, 26, 26);
     opacity: 0.8;
     border: 2px solid white;
-    border-radius: 27px;
+    border-radius: 30px;
     cursor: pointer;
     margin: 9px 12px;
 } 
 
 .div-open-PopUp-trailer:hover {
-    width: 28px;
-    height: 28px;
-    background-size: 22px;
+    width: 32px;
+    height: 32px;
+    background-size: 24px;
     opacity: 1;
 } 
 

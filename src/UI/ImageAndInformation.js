@@ -59,7 +59,6 @@ const ImageAndInformation = props => {
             returnDivThatShowIconForWatchTrailer()
           }
 
-
           {
             props.image !== undefined
             ? <img src={mainUrlImage + props.image} alt="Capa" border="0"/>
