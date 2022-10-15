@@ -42,7 +42,7 @@ export default forwardRef(function AlredyWatched (props, refAlredyWatched) {
             // pega o ultimo objeto do array, coloca em primerio e joga os outros para "tras"
             // recebe o array com 7 items e nao adiciona mais nenhum apenas tira os já existentes e adiciona os novos pelos novos itens
         } 
-        // função que remaneja array antes de completar length 8 aumenta itens no array, ao chegar em 8 itens apenas
+        // função que remaneja array antes de completar length 7 aumenta itens no array, ao chegar em 8 itens apenas
         // apaga alguns e aduciona outros itens. 
         // o array fica salvo no local storage.
     }, [titleAndImageAfterRequest]);
