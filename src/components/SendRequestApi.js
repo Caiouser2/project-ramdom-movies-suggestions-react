@@ -20,18 +20,21 @@ const SendRequestApi = (props) => {
     setSelectedValue(e.target.value);
     setErrorSelect(null);
     props.emptySelect(null);
-    };
+  };
 
   const [errorSelect, setErrorSelect] = useState(null);
 
   function ramdomNumberToComplementApi() {
-    let ramdomNumberForSendPageToRequestOnApi = Math.floor(Math.random() * 44); //variable number for random choice of request of movie
-    if (ramdomNumberForSendPageToRequestOnApi === 0) {
-      ramdomNumberForSendPageToRequestOnApi = Math.floor(Math.random() * 44);
-    }
+    const minValueToPageApi = Math.ceil(1);
+    const maxValueToPageApi = Math.floor(60);
+    const ramdomNumberForSendPageToRequestOnApi = Math.floor(Math.random() * (maxValueToPageApi - minValueToPageApi) + minValueToPageApi); //ramdom numer to page on request
 
     const numberVariableRequstOfMovieAndTvShow = Math.floor(Math.random() * 2); //variable number for random choice of request of movie
-    const choiceOneObjectOnListBetweenTwentyResults = Math.floor(Math.random() * 19);
+
+    const minValueForChoiceOnList = Math.ceil(0);
+    const maxValueForChoiceOnList = Math.floor(19);
+    const choiceOneObjectOnListBetweenTwentyResults = Math.floor(Math.random() * (maxValueForChoiceOnList - minValueForChoiceOnList) + minValueForChoiceOnList);
+    console.log(ramdomNumberForSendPageToRequestOnApi)
 
     if (selectedValue === "") {
       setErrorSelect("error");
@@ -76,6 +79,7 @@ const SendRequestApi = (props) => {
   async function getIdForSecondRequest(ramdomNumOfPage, pathApi, ramdomNumberOfResultsReturnedApi) {
     await Api.get(`${pathApi}${ramdomNumOfPage}`)
       .then((response) => {
+        console.log(response.data)
         if (response.data.results[ramdomNumberOfResultsReturnedApi].adult === true || response.data.results[ramdomNumberOfResultsReturnedApi].overview === "") {
           ramdomNumberToComplementApi();
         } else {
