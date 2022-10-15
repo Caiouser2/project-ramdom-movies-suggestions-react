@@ -13,7 +13,6 @@ header {
     width: 100%;
     align-items: center;
     display: flex;
-    padding-bottom: 10px;
     flex: 1 1;
     justify-content: space-between;
 }
@@ -46,6 +45,10 @@ header {
 
     header {
         flex-flow: column;
+    }
+
+    .align-button-and-logo {
+        padding-bottom: 10px;
     }
 
     .align-button-and-logo > h1 {
