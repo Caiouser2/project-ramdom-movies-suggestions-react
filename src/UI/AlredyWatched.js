@@ -23,12 +23,12 @@ export default forwardRef(function AlredyWatched (props, refAlredyWatched) {
     }, []);
 
     useEffect(() => {
-        if (titleAndImageAfterRequest.length < 7 && titleAndImageAfterRequest.length !== 0) {
+        if (titleAndImageAfterRequest.length < 8 && titleAndImageAfterRequest.length !== 0) {
             saveArrayWithObjects.current.savedValues = JSON.parse(localStorage.getItem("informations-content"));
             saveArrayWithObjects.current.savedValues = localStorage.setItem("informations-content", JSON.stringify(titleAndImageAfterRequest));
             saveArrayWithObjects.current.savedValues = JSON.parse(localStorage.getItem("informations-content"));
             setArrayAlredyWatched(saveArrayWithObjects.current.savedValues);
-            // adicina novos item até o tamanho do array ser 9
+            // adicina novos item até o tamanho do array ser 8
         }
 
         if (saveArrayWithObjects.current.savedValues.length === 7 || titleAndImageAfterRequest.length === 7) {
