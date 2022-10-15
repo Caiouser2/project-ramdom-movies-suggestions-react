@@ -16,6 +16,7 @@ const OpnionOfUser = forwardRef((props, refPositionDiv) => {
                 ? returnIframeForm()
                 : null
             }
+            
             <div className="align-buttons">
                 <button id="button-1" onClick={() => {setHideForm(true)}}>Sim</button>
                 <button id="button-2" onClick={() => {setHideForm(false)}}>Não</button>

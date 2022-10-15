@@ -29,7 +29,7 @@ footer > h3 > p {
     display: flex;
     justify-content: space-evenly;
     align-items: baseline;
-    padding: 10px 0;
+    padding: 10px;
 }
 
 .align-informations > .side-one,
@@ -42,13 +42,15 @@ footer > h3 > p {
 .side-one > li > h5,
 .side-two > li > a,
 .side-two > a,
+.side-one > li > span,
 .side-two > li > span {
     color: rgb(218, 74, 74);
     text-decoration: none;
     font-size: 16px;
-    font-weight: 300;
+    font-weight: 600;
     letter-spacing: 0.5px;
     cursor: pointer;
+    font-family: 'Poppins', sans-serif;
 
 }
 
@@ -91,15 +93,17 @@ footer > p {
         font-size: 18px;
     }
 
-    footer > h3 > p {
-        font-size: 16px;
+    footer > h3 > span {
+        font-size: 18px;
     }
 
     .side-one > li > a, 
     .side-one > a, 
     .side-one > li > h5,
     .side-two > li > a,
-    .side-two > li {
-        font-size: 14px;
+    .side-two > li
+    .side-one > li > span,
+    .side-two > li > span  {
+        font-size: 13px;
     }
 }

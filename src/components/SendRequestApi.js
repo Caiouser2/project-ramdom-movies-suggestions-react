@@ -25,21 +25,13 @@ const SendRequestApi = (props) => {
   const [errorSelect, setErrorSelect] = useState(null);
 
   function ramdomNumberToComplementApi() {
-    let ramdomNumberOfPageForApiMoviesAndTvShowPopular = Math.floor(
-      Math.random() * 370
-    ); //variable number for random choice of request of movie
-    if (ramdomNumberOfPageForApiMoviesAndTvShowPopular === 0) {
-      ramdomNumberOfPageForApiMoviesAndTvShowPopular = Math.floor(
-        Math.random() * 370
-      );
+    let ramdomNumberForSendPageToRequestOnApi = Math.floor(Math.random() * 44); //variable number for random choice of request of movie
+    if (ramdomNumberForSendPageToRequestOnApi === 0) {
+      ramdomNumberForSendPageToRequestOnApi = Math.floor(Math.random() * 44);
     }
 
-    let ramdomNumberOfPageApiTvShowsTopRated = Math.floor(Math.random() * 127);
-    if (ramdomNumberOfPageApiTvShowsTopRated === 0) {
-      ramdomNumberOfPageApiTvShowsTopRated = Math.floor(Math.random() * 127);
-    }
     const numberVariableRequstOfMovieAndTvShow = Math.floor(Math.random() * 2); //variable number for random choice of request of movie
-    const ramdomChoiceForResultsApi = Math.floor(Math.random() * 19);
+    const choiceOneObjectOnListBetweenTwentyResults = Math.floor(Math.random() * 19);
 
     if (selectedValue === "") {
       setErrorSelect("error");
@@ -50,15 +42,15 @@ const SendRequestApi = (props) => {
 
       if (numberVariableRequstOfMovieAndTvShow === 0) {
         getIdForSecondRequest(
-          ramdomNumberOfPageForApiMoviesAndTvShowPopular,
+          ramdomNumberForSendPageToRequestOnApi,
           pathApiContentMoviesAndTvShows.Movies[0],
-          ramdomChoiceForResultsApi
+          choiceOneObjectOnListBetweenTwentyResults
         );
       } else {
         getIdForSecondRequest(
-          ramdomNumberOfPageForApiMoviesAndTvShowPopular,
+          ramdomNumberForSendPageToRequestOnApi,
           pathApiContentMoviesAndTvShows.Movies[1],
-          ramdomChoiceForResultsApi
+          choiceOneObjectOnListBetweenTwentyResults
         );
       }
     } else {
@@ -67,32 +59,30 @@ const SendRequestApi = (props) => {
 
       if (numberVariableRequstOfMovieAndTvShow === 0) {
         getIdForSecondRequest(
-          ramdomNumberOfPageApiTvShowsTopRated,
+          ramdomNumberForSendPageToRequestOnApi,
           pathApiContentMoviesAndTvShows.TvShows[0],
-          ramdomChoiceForResultsApi
+          choiceOneObjectOnListBetweenTwentyResults
         );
       } else {
         getIdForSecondRequest(
-          ramdomNumberOfPageForApiMoviesAndTvShowPopular,
+          ramdomNumberForSendPageToRequestOnApi,
           pathApiContentMoviesAndTvShows.TvShows[1],
-          ramdomChoiceForResultsApi
+          choiceOneObjectOnListBetweenTwentyResults
         );
       }
     }
   }
 
-  async function getIdForSecondRequest(ramdomNumOfPage, pathApi, ramdomNumOfResultsReturnedApi) {
+  async function getIdForSecondRequest(ramdomNumOfPage, pathApi, ramdomNumberOfResultsReturnedApi) {
     await Api.get(`${pathApi}${ramdomNumOfPage}`)
       .then((response) => {
-        if (response.data.results[ramdomNumOfResultsReturnedApi].adult === true || response.data.results[ramdomNumOfResultsReturnedApi].overview === "") {
+        if (response.data.results[ramdomNumberOfResultsReturnedApi].adult === true || response.data.results[ramdomNumberOfResultsReturnedApi].overview === "") {
           ramdomNumberToComplementApi();
         } else {
           if (selectedValue === "Movies") {
-            console.log(response.data.results[ramdomNumOfResultsReturnedApi]);
-            SecondRequestOfInformations('movie', response.data.results[ramdomNumOfResultsReturnedApi].id);
+            SecondRequestOfInformations('movie', response.data.results[ramdomNumberOfResultsReturnedApi].id);
           } else {
-            console.log("serie");
-            SecondRequestOfInformations('tv', response.data.results[ramdomNumOfResultsReturnedApi].id);
+            SecondRequestOfInformations('tv', response.data.results[ramdomNumberOfResultsReturnedApi].id);
           }
         }
       })
@@ -109,7 +99,6 @@ const SendRequestApi = (props) => {
   function SecondRequestOfInformations(typeOfContentMovieOrTvShow, id) {
     Api.get(`/${typeOfContentMovieOrTvShow}/${id}?api_key=cc95f3c6dd41a11be17d581b9ec3f1f9&append_to_response=videos&language=pt-BR`)
       .then((response) => {
-        console.log(response.data);
         props.reciveContentApi(response.data);
 
         setTimeout(() => {

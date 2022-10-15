@@ -13,7 +13,7 @@ export default function LoadingImage(props) {
         <div className={'container-loading ' + loading} title="Carregando capa do filme ou da série">
             <div className="loading-circle"></div>
             <div>
-                <h3>Carregando</h3>
+                <h3 className="text-element-loading">Carregando</h3>
             </div>
         </div>
     );

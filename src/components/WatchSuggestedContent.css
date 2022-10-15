@@ -97,3 +97,15 @@
 .warning-content-justwatch-text > h5 > a:hover {
     text-decoration: underline;
 }
+
+@media screen and (max-width:381px) {
+    .container-icon-more-and-less1 {
+        transform: translate(12px, 10px);
+        background-size: 25px;
+    }
+    
+    .container-icon-more-and-less2 {
+        transform: translate(12px, 10px);
+        background-size: 25px;
+    }
+}

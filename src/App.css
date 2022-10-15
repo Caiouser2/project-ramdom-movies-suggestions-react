@@ -7,13 +7,13 @@ header {
     align-items: center;
     display: flex;
     flex-flow: row wrap;
-    gap: 1rem;
 }
 
 .align-button-and-logo {
     width: 100%;
     align-items: center;
     display: flex;
+    padding-bottom: 10px;
     flex: 1 1;
     justify-content: space-between;
 }
@@ -23,6 +23,7 @@ header {
     color: rgb(50, 110, 212);
     font-size: 28px;
     letter-spacing: 1.2px;
+    min-width: 256px;
 }
 
 .button-open-and-close-menu {
@@ -36,6 +37,20 @@ header {
     display: none;
     background-position: center;
     background-size: 40px;
+}
+
+@media screen and (max-width:1037px) {
+    .button-open-and-close-menu {
+        display: inherit;
+    }
+
+    header {
+        flex-flow: column;
+    }
+
+    .align-button-and-logo > h1 {
+        font-size: 20px;
+    }
 }
 
 @media screen and (max-width:890px) {
@@ -61,7 +76,7 @@ header {
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin: -92px 0 52px 0;
+    margin: -92px 0 -32px 0;
 }
 
 .arrow-trailer {

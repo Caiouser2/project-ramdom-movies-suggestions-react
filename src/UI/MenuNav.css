@@ -20,19 +20,17 @@
     color: black;
 }
 
-.container-list > ul > li:focus {
+ .container-list > ul > li:focus {
     border: 3px solid black;
     background-color: rgb(226, 149, 61);
     color: black;
 }
 
-.container-list > ul > li:active {
-    border: 3px solid black;
-    background-color: rgb(226, 149, 61);
-    color: black;
-}
+@media screen and (max-width: 1037px) {
+    .container-list {
+        display: none;
+    }
 
-@media screen and (max-width:890px) {
     .container-list > ul {
         flex-direction: column;
         width: 100%;
@@ -47,3 +45,4 @@
         margin-top: 12px;
     }
 }
+

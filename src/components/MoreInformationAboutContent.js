@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import './MoreInformationAboutContent.css';
 
 export default function MoreInformationAboutContent(props) {
@@ -65,10 +65,7 @@ export default function MoreInformationAboutContent(props) {
         if (secondNumber === undefined) {
             secondNumber = '';
         }
-
         setValueRateFromUsers(`${firtNumber}${secondNumber}%`)
-        console.log(props.rateUsers);
-
     }, [formartValueRateFromUsers, props]);
 
     return (

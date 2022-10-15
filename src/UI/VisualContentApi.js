@@ -1,13 +1,14 @@
 import React, { useState, useEffect, forwardRef } from 'react';
 import SendRequestApi from '../components/SendRequestApi';
 import MoreInformationAboutContent from '../components/MoreInformationAboutContent';
+import Trailer from '../components/Trailer';
 import ImageAndInformation from './ImageAndInformation';
 import Overview from './Overview';
 import './VisualContentApi.css';
 
 const VisualContentApi = forwardRef((props, refVisualContent) => {
     function onScrollListHeader() {
-        props.onActiveScroll(0, 35, 1900); //send to function in App.js
+      props.onActiveScroll(0, 75, 1900); //send to function in App.js
     }
 
     //section recive and show content API on screen 
@@ -16,49 +17,58 @@ const VisualContentApi = forwardRef((props, refVisualContent) => {
     const [selectedOptionOfUserMovieOrTvShow, setSelectedOptionOfUserMovieOrTvShow] = useState(''); 
 
     async function selectedOption(option) {
-        setSelectedOptionOfUserMovieOrTvShow(option); //option return true or false, option === true = movie; option !== true = TvShows
+      setSelectedOptionOfUserMovieOrTvShow(option); //option return true or false, option === true = movie; option !== true = TvShows
     }
  
     async function content(actualContent) {
-        setContentApi(actualContent);
+      setContentApi(actualContent);
     }
 
     useEffect(() => {
-        if (typeof contentApi.videos === "object") {
-            props.informationsOfVideos(contentApi.videos);
-        }
-    }, [contentApi, props]);
-
-    useEffect(() => {
-        if (typeof contentApi.title === "string" || typeof contentApi.name === "string") {
-            props.titlesSendToReciveTitle(contentApi.title || contentApi.name || undefined); // to App.js using in AlredyWatched.js
-        }
+      if (typeof contentApi.title === "string" || typeof contentApi.name === "string") {
+        props.titlesSendToReciveTitle(contentApi.title || contentApi.name || undefined); // to App.js using in AlredyWatched.js
+      }
     },[contentApi.name, contentApi.title, props]);
 
     useEffect(() => {
-        if (contentApi.poster_path !== '') {
-            props.SendPathImageOfContent(contentApi.poster_path || undefined); // to App using in AlredyWatched.js
-        }
+      if (contentApi.poster_path !== '') {
+        props.SendPathImageOfContent(contentApi.poster_path || undefined); // to App using in AlredyWatched.js
+      }
     },[contentApi.poster_path, props]);
 
     //section active loanding and active errors  
     const [activeLoading, setActiveLoading] = useState('nonActive');
 
     function chargeTime() {
-        setActiveLoading('active')
-        timeCounter()
+      setActiveLoading('active')
+      timeCounter()
     }
 
     function timeCounter() {
-        setTimeout(() => {
-            setActiveLoading('nonActive');
-        }, 3200);
+      setTimeout(() => {
+        setActiveLoading('nonActive');
+      }, 3450);
     }
 
+    // send error message to Overview when not select movie or Tv show and request fail
     const [MessageError, setError] = useState(null);
 
     function activeError(errorFun) {
-        setError(errorFun);
+      setError(errorFun);
+    }
+    const [visibleDivTrailer, setVisibleDivTrailer] = useState(false)
+
+
+    function reciveValuesForTrailer(value) {
+      setVisibleDivTrailer(value);
+    }
+
+    function ShowComponentTrailer() {
+      return <Trailer 
+      titles={ selectedOptionOfUserMovieOrTvShow ? contentApi.title : contentApi.name }
+      videos={ contentApi === undefined ? {results: []}  : contentApi.videos } 
+      setFalseForHideComponentTrailer={reciveValuesForTrailer}
+      />
     }
 
     return (
@@ -69,7 +79,8 @@ const VisualContentApi = forwardRef((props, refVisualContent) => {
             ? contentApi.title
             : contentApi.name
           }
-
+          informationsAboutVideos={contentApi.videos}
+          setTrueForHideComponentTrailer={reciveValuesForTrailer}
           idContentRequestProvidersList={contentApi.id}
           image={contentApi.poster_path}
           reciveActivation={activeLoading}
@@ -113,6 +124,11 @@ const VisualContentApi = forwardRef((props, refVisualContent) => {
             reciveContentApi={content}
           />
         </div>
+        {
+          visibleDivTrailer === true
+          ? ShowComponentTrailer()
+          : null
+        }
       </div>
     );
 });

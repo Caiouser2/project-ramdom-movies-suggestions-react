@@ -35,3 +35,19 @@
 .container-send-request > button {
     margin-bottom: 10px;
 }
+
+@media screen and (max-width:381px) {
+    .container-send-request > select, 
+    .container-send-request > button {
+        font-size: 18px;
+        height: 37px;
+    }
+
+    .container-send-request > select {
+        margin-top: 10px;
+    } 
+    
+    .container-send-request > button {
+        margin-top: 5px;
+    } 
+}
