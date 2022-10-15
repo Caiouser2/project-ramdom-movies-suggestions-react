@@ -2,7 +2,6 @@ import { useRef, useState, useEffect } from "react";
 import VisualContentApi from "./UI/VisualContentApi";
 import Footer from "./UI/Footer";
 import PopUpAceptPrivacyPolicy from "./UI/PopUpAceptPrivacyPolicy";
-import Trailer from "./components/Trailer";
 import OpnionOfUser from './components/OpnionOfUser';
 import AlredyWatched from "./UI/AlredyWatched";
 import MenuNav from "./UI/MenuNav";
@@ -31,15 +30,6 @@ function App() {
     }, 1000 / 60);
   }
 
-  //section get videos: trailers, behind the cenes etc... and send for Trailer
-  function reciveVideos(UrlVideos) {
-    setContentReturnedApiVideo(UrlVideos);
-  }
-
-  const [contentReturnedApiVideo, setContentReturnedApiVideo] = useState({
-    results: [],
-  });
-
   // section send informations for AlredyWatched.js 
   const [titleContent, setTitleContent] = useState();
 
@@ -57,45 +47,19 @@ function App() {
     } 
   }
 
-  // section menu nav
+  // section menu nav, show and hide
   const [visibleMenu, setVisibleMenu] = useState("");
 
   // checks when to show button menu or only list
-  useEffect(() => {
-    let mainWidthDevice = window.innerWidth;
-
-    if (mainWidthDevice < 895) {
-      setVisibleMenu("hide"); //device mobile or tablet
-    }
-  }, []);
-
   function openMenu() {
-    if (visibleMenu === "hide") {
-      setTimeout(() => {
-        setVisibleMenu("show");
-      }, 100);
-    } else if (visibleMenu === "show") {
-      setTimeout(() => {
-        setVisibleMenu("hide");
-      }, 100);
-    }
-  }
-
-  function verifyTypeResposiveMenu() {
-    let width = window.innerWidth;
-
-    if (width > 895) {
-      setTimeout(() => {
-        setVisibleMenu("show");
-      }, 100);
+    if (visibleMenu === "") {
+      setVisibleMenu('show');
     } else {
-      setVisibleMenu("hide");
+      setVisibleMenu('');
     }
+
   }
 
-  function CloseMenuWhenClicked(hide) {
-    setVisibleMenu(hide);
-  }
   //set device mobile or desktop
   const [listenerOnResize, setListenerOnResize] = useState(true); //verify if device is desktop or mobile
 
@@ -109,27 +73,23 @@ function App() {
 
   window.onresize = () => {
     getPositions();
-    verifyTypeResposiveMenu();
   };
   
   // get distance of elements to the top  
-  const [positionYComponents, setPositionYComponents] = useState({}); // sent to MenuNav
+  const [positionYComponents, setPositionYComponents] = useState({}); // sent to MenuNav.js
   
   const refPositionDivOpnionOfUser = useRef(null);
-  const refReciveValueOfTrailer = useRef(null);
   const refAlredyWatched = useRef(null);
   const refVisualContentApi = useRef(null);
   
   useEffect(() => {
     const getDistanceBetweenTopAndComponentOpnionOfUser = refPositionDivOpnionOfUser.current.offsetTop;
-    const getDistanceBetweenTopAndComponentTrailer = refReciveValueOfTrailer.current.offsetTop;
     const getDistanceBetweenTopAndComponentAlredyWatched = refAlredyWatched.current.offsetTop;
     const getDistanceBetweenTopAndComponentVisualContentApi = refVisualContentApi.current.offsetTop;
 
     if (listenerOnResize === true) {
       setPositionYComponents({
         positionOpnionOfUser: getDistanceBetweenTopAndComponentOpnionOfUser,
-        positionTrailer: getDistanceBetweenTopAndComponentTrailer,
         positionAlredyWatched: getDistanceBetweenTopAndComponentAlredyWatched,
         positionVisualContentApi: getDistanceBetweenTopAndComponentVisualContentApi,
       });
@@ -148,12 +108,11 @@ function App() {
           objPositionsComponents={positionYComponents}
           onActiveScroll={smoothScrollTo}
           onShowMenu={visibleMenu}
-          onCloseMenu={CloseMenuWhenClicked}
+          onCloseMenu={openMenu}
         />
       </header>
       <VisualContentApi
         ref={refVisualContentApi}
-        informationsOfVideos={reciveVideos}
         onActiveScroll={smoothScrollTo}
         SendPathImageOfContent={recivePathImage}
         titlesSendToReciveTitle={reciveTitle}
@@ -163,18 +122,13 @@ function App() {
         <div className="arrow-trailer"></div>
         <div className="arrow-trailer"></div>
       </div>
-      <Trailer
-        ref={refReciveValueOfTrailer}
-        titles={titleContent}
-        videos={contentReturnedApiVideo}
-      />
       <AlredyWatched
         ref={refAlredyWatched}
         titles={titleContent}
         images={pathImages}
       />
       <OpnionOfUser ref={refPositionDivOpnionOfUser} />
-      <Footer />
+      <Footer/>
     </div>
   );
 }

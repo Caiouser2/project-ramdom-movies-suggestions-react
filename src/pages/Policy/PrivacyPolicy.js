@@ -91,7 +91,7 @@ export default function PrivacyPolicy() {
         <br></br>
         <h3>SEÇÃO IV - VINCULO A SITES EXTERNOS</h3>
         <p>
-          O site ramdommovies.dev.br pode conter vinculo com sites externos,
+          O site ramdommovies.dev.br contém vinculo com sites externos,
           estes que podem possuir ferramentas e/ou informações proveitosas para
           os usuários. Esta <strong>política de privacidade</strong> não é
           empregada aos sites externos, se for do interesse do usuário, o mesmo
@@ -140,6 +140,13 @@ export default function PrivacyPolicy() {
           Visando o pagamento de custos de manutenção do site, são exibidos
           anúncios em nosso site, durante a exibição destes é coletado algumas
           informações, tais como: IP, ISP , Browser, Tempo de permanência.
+        </p>
+        <br></br>
+        <h3>FORMULÁRIO</h3>
+        <p>
+          Ao aceitar o campo de seleção e enviar sua avaliação nós podemos usar seu comentário 
+          e sua nota para: melhorar as sugestões, passar as respectivas avaliações para o site
+          The Movie Database e guardá-las para uso em futuras atualizações do site. 
         </p>
         <br></br>
         <h3>ANÁLISE DE DADOS</h3>

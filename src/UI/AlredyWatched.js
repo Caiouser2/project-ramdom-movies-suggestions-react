@@ -23,7 +23,7 @@ export default forwardRef(function AlredyWatched (props, refAlredyWatched) {
     }, []);
 
     useEffect(() => {
-        if (titleAndImageAfterRequest.length < 9 && titleAndImageAfterRequest.length !== 0) {
+        if (titleAndImageAfterRequest.length < 7 && titleAndImageAfterRequest.length !== 0) {
             saveArrayWithObjects.current.savedValues = JSON.parse(localStorage.getItem("informations-content"));
             saveArrayWithObjects.current.savedValues = localStorage.setItem("informations-content", JSON.stringify(titleAndImageAfterRequest));
             saveArrayWithObjects.current.savedValues = JSON.parse(localStorage.getItem("informations-content"));
@@ -31,7 +31,7 @@ export default forwardRef(function AlredyWatched (props, refAlredyWatched) {
             // adicina novos item até o tamanho do array ser 9
         }
 
-        if (saveArrayWithObjects.current.savedValues.length === 9 || titleAndImageAfterRequest.length === 9) {
+        if (saveArrayWithObjects.current.savedValues.length === 7 || titleAndImageAfterRequest.length === 7) {
             let takesLastObjectAndOverwritesItInTheArray = titleAndImageAfterRequest.pop();
             titleAndImageAfterRequest.splice(0, 0, takesLastObjectAndOverwritesItInTheArray);
             titleAndImageAfterRequest.pop(); 
@@ -40,7 +40,7 @@ export default forwardRef(function AlredyWatched (props, refAlredyWatched) {
             saveArrayWithObjects.current.savedValues = JSON.parse(localStorage.getItem("informations-content"));
             setArrayAlredyWatched(saveArrayWithObjects.current.savedValues);
             // pega o ultimo objeto do array, coloca em primerio e joga os outros para "tras"
-            // recebe o array com 8 items e nao adiciona mais nenhum apenas tira os já existentes e adiciona os novos pelos novos itens
+            // recebe o array com 7 items e nao adiciona mais nenhum apenas tira os já existentes e adiciona os novos pelos novos itens
         } 
         // função que remaneja array antes de completar length 8 aumenta itens no array, ao chegar em 8 itens apenas
         // apaga alguns e aduciona outros itens. 
