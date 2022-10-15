@@ -10,7 +10,7 @@ const OpnionOfUser = forwardRef((props, refPositionDiv) => {
 
     return(
         <div className="align-form" ref={refPositionDiv}>
-            <h2>Diga nos o que achou da sugestão:</h2>
+            <h2>Diga-nos o que achou da sugestão:</h2>
             {
                 hideForm === true
                 ? returnIframeForm()
