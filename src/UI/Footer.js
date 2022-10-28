@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import './Footer.css';
 
-export default function Footer(props) {
+export default function Footer() {
     return(
         <footer>
             <h3>Feito com <span title="amor">❤️</span> para todos que adoram novas descobertas.</h3>

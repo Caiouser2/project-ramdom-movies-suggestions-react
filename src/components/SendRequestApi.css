@@ -23,6 +23,7 @@
 
 .container-send-request > select:hover, 
 .container-send-request > button:hover {
+    border: 1.5px solid white;
     background-color: rgb(14 14 14);
 }
 
