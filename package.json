@@ -1,5 +1,6 @@
 {
   "name": "ramdom-movies",
+  "homepage": "project-ramdom-movies-suggestions-react/",
   "version": "0.1.0",
   "engines": {
     "node": "16.14.2"
