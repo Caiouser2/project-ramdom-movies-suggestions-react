@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/RAMDOM-MOVIES/static/css/main.c9ab8487.css",
-    "main.js": "/RAMDOM-MOVIES/static/js/main.cebb4a41.js",
-    "index.html": "/RAMDOM-MOVIES/index.html",
-    "main.c9ab8487.css.map": "/RAMDOM-MOVIES/static/css/main.c9ab8487.css.map",
-    "main.cebb4a41.js.map": "/RAMDOM-MOVIES/static/js/main.cebb4a41.js.map"
+    "main.css": "/project-ramdom-movies-suggestions-react/static/css/main.c9ab8487.css",
+    "main.js": "/project-ramdom-movies-suggestions-react/static/js/main.cebb4a41.js",
+    "index.html": "/project-ramdom-movies-suggestions-react/index.html",
+    "main.c9ab8487.css.map": "/project-ramdom-movies-suggestions-react/static/css/main.c9ab8487.css.map",
+    "main.cebb4a41.js.map": "/project-ramdom-movies-suggestions-react/static/js/main.cebb4a41.js.map"
   },
   "entrypoints": [
     "static/css/main.c9ab8487.css",
