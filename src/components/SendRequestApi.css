@@ -5,7 +5,7 @@
     border-radius: 10px;
     text-align: center;
     background-color: rgb(24, 24, 24);
-    border: 1.7px solid gray;
+    border: 1.2px solid gray;
     color: rgb(221 220 220);
     font-family: Kdam Thmor Pro, Arial, Helvetica, sans-serif;
     font-size: 19px;
@@ -22,7 +22,7 @@
 
 .container-send-request > select:hover, 
 .container-send-request > button:hover {
-    border: 1.5px solid white;
+    border: 2px solid white;
     background-color: rgb(14 14 14);
 }
 
