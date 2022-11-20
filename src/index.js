@@ -12,7 +12,7 @@ root.render(
   <React.StrictMode>
       <BrowserRouter>
         <Routes>
-            <Route path="/" element={<App/>}/>
+            <Route path="project-ramdom-movies-suggestions-react/" element={<App/>}/>
             <Route path="/como-usar-site" element={<HowUse/>}/>
             <Route path="/informacoes-importantes" element={<Informations/>}/>
             <Route path="/politica-de-privacidade" element={<Policy/>}/>
