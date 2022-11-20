@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/project-ramdom-movies-suggestions-react/static/css/main.78837419.css",
-    "main.js": "/project-ramdom-movies-suggestions-react/static/js/main.cb280dc3.js",
+    "main.js": "/project-ramdom-movies-suggestions-react/static/js/main.c011368f.js",
     "index.html": "/project-ramdom-movies-suggestions-react/index.html",
     "main.78837419.css.map": "/project-ramdom-movies-suggestions-react/static/css/main.78837419.css.map",
-    "main.cb280dc3.js.map": "/project-ramdom-movies-suggestions-react/static/js/main.cb280dc3.js.map"
+    "main.c011368f.js.map": "/project-ramdom-movies-suggestions-react/static/js/main.c011368f.js.map"
   },
   "entrypoints": [
     "static/css/main.78837419.css",
-    "static/js/main.cb280dc3.js"
+    "static/js/main.c011368f.js"
   ]
 }
