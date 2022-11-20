@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { React, useState } from 'react';
 import WatchSuggestedContent from '../components/WatchSuggestedContent';
 import './ImageAndInformation.css';
 import LoadingImage from '../components/LoadingImage';  
@@ -52,7 +52,7 @@ const ImageAndInformation = props => {
         <div className="container-image"  tabIndex="0">
           <div className="align-container-warning">
             <div className={"container-warning " + classvisibilityWarningBackground}>
-              <span onClick={ShowAndHideWarning} title="aviso">⚠️</span> <span className={classvisibilityWarningPharse}>VERIFIQUE A CLASSIFICAÇÃO INDICATIVA ANTES DE ASSITIR</span>
+              <span onClick={ShowAndHideWarning} title="aviso" role="img"  aria-label="emoji">⚠️</span> <span className={classvisibilityWarningPharse}>VERIFIQUE A CLASSIFICAÇÃO INDICATIVA ANTES DE ASSITIR</span>
             </div>
           </div>
           {

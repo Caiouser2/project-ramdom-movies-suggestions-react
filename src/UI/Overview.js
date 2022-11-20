@@ -1,3 +1,4 @@
+import { React } from 'react';
 import './Overview.css';
 
 const Overview = props => {

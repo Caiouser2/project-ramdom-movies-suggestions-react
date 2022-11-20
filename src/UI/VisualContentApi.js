@@ -1,4 +1,4 @@
-import React, { useState, useEffect, forwardRef } from 'react';
+import  { React, useState, useEffect, forwardRef } from 'react';
 import SendRequestApi from '../components/SendRequestApi';
 import MoreInformationAboutContent from '../components/MoreInformationAboutContent';
 import Trailer from '../components/Trailer';

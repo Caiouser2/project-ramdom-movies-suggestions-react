@@ -1,6 +1,6 @@
 import './WatchSuggestedContent.css';
 import Api from '../services/Api';
-import { useState, useEffect } from 'react';
+import { React, useState, useEffect } from 'react';
 
 export default function WatchSuggestedContent(props) {
     const [linkWatchContent, setLinkWatchContent] = useState({});
@@ -68,7 +68,7 @@ export default function WatchSuggestedContent(props) {
 
     function renderText() {
         if (typeof linkWatchContent === "string") {
-            return <a href={linkWatchContent} rel="noreferrer" target="_blank">Assitir agora</a>; 
+            return <a href={linkWatchContent} target="_blank" rel="noopener noreferrer">Assitir agora</a>; 
         } else {
             return <h3 className="content-unavailable">Não disponível no Brasil</h3>;
         }
@@ -92,7 +92,13 @@ export default function WatchSuggestedContent(props) {
 
     function renderInformationsAboutJustWatch() {
         if (typeof linkWatchContent === "string") {
-            return <div className={ messageAboutJustWatch + " warning-content-justwatch-text"} title="Explicação sobre redirecionamento"><h5>Ao clicar em assitir agora você será redircionado para o site do THE MOVIE DATABASE, onde atravéz das informações fornecidas pelo site JustWatch você pode escolher qual serviço usar para assistir de forma legal o filme ou série que lhe foi sugerido. Para mais informações visitar <a href="https://www.justwatch.com/" rel="noreferrer" target="_blank">JustWatch</a>.</h5></div>;
+            return (
+                <div className={ messageAboutJustWatch + " warning-content-justwatch-text"} title="Explicação sobre redirecionamento">
+                    <h5>Ao clicar em assitir agora você será redircionado para o site do THE MOVIE DATABASE, onde atravéz das informações fornecidas pelo site JustWatch você pode escolher qual serviço usar para assistir de forma legal o filme ou série que lhe foi sugerido. Para mais informações visitar 
+                        <a href="https://www.justwatch.com/" rel="noopener noreferrer" target="_blank">JustWatch</a>.
+                    </h5>
+                </div>
+            );
         } else {
             return null; 
         }

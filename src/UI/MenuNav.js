@@ -1,4 +1,4 @@
-import {forwardRef} from 'react'
+import { React, forwardRef } from 'react';
 import './MenuNav.css';
 
 const MenuNav = forwardRef((props, getActualClassInDiv) => {

@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from "react";
+import  { React, useRef, useState, useEffect } from "react";
 import VisualContentApi from "./UI/VisualContentApi";
 import Footer from "./UI/Footer";
 import PopUpAceptPrivacyPolicy from "./UI/PopUpAceptPrivacyPolicy";
@@ -130,7 +130,7 @@ function App() {
       <OpnionOfUser ref={refPositionDivOpnionOfUser} />
       <Footer/>
     </div>
-  );
+  )
 }
 
 export default App;

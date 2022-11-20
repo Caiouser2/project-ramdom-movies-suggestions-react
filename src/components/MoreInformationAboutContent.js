@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { React, useEffect, useState } from 'react';
 import './MoreInformationAboutContent.css';
 
 export default function MoreInformationAboutContent(props) {
