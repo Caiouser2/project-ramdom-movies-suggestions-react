@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          node-version: 'https://caiouser2.github.io/project-ramdom-movies-suggestions-react/'
+          node-version: ${{ secrets.GITHUB_TOKEN }}
       - name: Build web-app
         run: |
           npm ci
