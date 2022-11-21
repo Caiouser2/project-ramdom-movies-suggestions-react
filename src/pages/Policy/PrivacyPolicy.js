@@ -172,7 +172,7 @@ export default function PrivacyPolicy() {
         </p>
       </div>
       <div className="link-inicial-page">
-        <Link to="project-ramdom-movies-suggestions-react/"><span>Voltar para pagína inicial</span></Link>
+        <Link to="/project-ramdom-movies-suggestions-react/"><span>Voltar para pagína inicial</span></Link>
       </div>
     </div>
   );

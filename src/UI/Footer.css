@@ -14,10 +14,10 @@ footer > h3 > span {
 
 footer > h3 {
     color: rgb(221 220 220);
-    border-bottom: 3px solid white;
-    padding: 8px 13.5px 13.5px 13.5px;
+    border-bottom: 2.5px solid white;
+    padding: 8px 13.5px;
     font-weight: 500;
-    font-size: 26px;
+    font-size: 23px;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -35,30 +35,23 @@ footer > h3 > p {
 .align-informations > .side-one,
 .align-informations > .side-two {
     list-style: none;
+    text-align: left;
+    border-left: 1.7px dashed white;
+    padding: 0 11px;
 }
 
-.side-one > li > a, 
-.side-one > a, 
-.side-one > li > h5,
-.side-two > li > a,
-.side-two > a,
-.side-one > li > span,
-.side-two > li > span {
+.align-informations > ul li a,
+.align-informations > ul li span {
     color: rgb(218, 74, 74);
     text-decoration: none;
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
+    font-size: 16.5px;
+    font-weight: 500;
+    letter-spacing: 0.7px;
     cursor: pointer;
     font-family: 'Poppins', sans-serif;
-
 }
 
-.side-one > li > a:hover, 
-.side-one > a:hover, 
-.side-one > li > h5:hover,
-.side-two > li > a:hover,
-.side-two > a:hover {
+.align-informations > ul li a:hover {
     color: rgb(50, 110, 212);
     text-decoration: underline;
 }
