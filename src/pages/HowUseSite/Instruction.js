@@ -37,7 +37,7 @@ export default function Instruction() {
           </ol>
         </nav>
         <div className="link-inicial-page-in-instruction">
-        <Link to="/"><span>Voltar para pagína inicial</span></Link>
+        <Link to="project-ramdom-movies-suggestions-react/"><span>Voltar para pagína inicial</span></Link>
       </div>
       </div>
     );

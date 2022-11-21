@@ -53,7 +53,7 @@ export default function ImportantsInformations() {
           </p>
       </div>
       <div className="link-inicial-page">
-        <Link to="/"><span>Voltar para pagína inicial</span></Link>
+        <Link to="project-ramdom-movies-suggestions-react/"><span>Voltar para pagína inicial</span></Link>
       </div>
     </div>
   );
